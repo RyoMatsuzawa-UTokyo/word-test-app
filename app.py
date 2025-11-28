@@ -295,7 +295,7 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
     return buffer
 
 # --- アプリ画面構築 ---
-st.title("🖨️ 単語テスト生成アプリ")
+st.title("単語テスト生成アプリ")
 
 csv_files_paths = get_csv_files()
 
