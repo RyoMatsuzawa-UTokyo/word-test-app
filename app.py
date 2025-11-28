@@ -14,7 +14,7 @@ import streamlit.components.v1 as components
 from streamlit_pdf_viewer import pdf_viewer
 
 # --- 設定 ---
-st.set_page_config(page_title="単語テスト作成機 Pro", layout="wide")
+st.set_page_config(page_title="単語テスト作成アプリ", layout="wide")
 DATA_DIR = "単語data"
 
 # --- フォント設定 ---
@@ -295,8 +295,7 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
     return buffer
 
 # --- アプリ画面構築 ---
-st.title("🖨️ 単語テスト作成機 Pro")
-st.caption("白黒印刷でも美しい、プロ仕様のデザインでテストを作成します。")
+st.title("🖨️ 単語テスト生成アプリ")
 
 csv_files_paths = get_csv_files()
 
@@ -325,7 +324,7 @@ else:
 
         st.sidebar.markdown("---")
         st.sidebar.header("2. テスト形式")
-        test_type = st.sidebar.selectbox("出題形式", ["記述式", "客観式（4択）"])
+        test_type = st.sidebar.selectbox("出題形式", ["記述式", "客観式"])
         
         default_title = f"{os.path.splitext(selected_filename)[0]} Test (No.{start_id}-{end_id})"
         title_input = st.sidebar.text_input("タイトル", value=default_title)
@@ -358,7 +357,7 @@ else:
                 )
                 
                 # 成功メッセージ
-                st.success(f"✅ 作成完了！ {len(target_df)}問")
+                st.success(f"✅ 作成完了！プレビューは印刷ボタンを押して確認してね！")
 
                 # PDFデータをBase64エンコード
                 pdf_b64 = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
@@ -390,7 +389,7 @@ else:
                         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
                         transition: background-color 0.3s;
                     ">
-                        🖨️ PDFを開いて印刷する
+                        🖨️ 印刷 🖨️
                     </button>
                 </div>
                 """
