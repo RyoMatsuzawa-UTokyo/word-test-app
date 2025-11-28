@@ -230,11 +230,11 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
                 draw_text_fitted(c, str(item['english']), x_base + 4*mm + id_width, line_1_y, max_word_width, EN_FONT_NAME, 13)
                 
                 c.setFont(EN_FONT_NAME, 12)
-                c.drawRightString(x_base + col_width - 4*mm, line_1_y, "(       )")
+                c.drawRightString(x_base + col_width - 5*mm, line_1_y, "(       )")
                 
                 if include_answers:
                     c.setFont(JP_FONT_GOTHIC, 11)
-                    c.drawCentredString(x_base + col_width - 12*mm, line_1_y, str(correct_num))
+                    c.drawCentredString(x_base + col_width - 10*mm, line_1_y, str(correct_num))
                 
                 c.setFont(JP_FONT_NAME, 9)
                 c.setFillColorRGB(0, 0, 0)
