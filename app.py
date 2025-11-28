@@ -294,7 +294,7 @@ else:
                     cursor: pointer;
                     margin-bottom: 20px;
                 ">
-                    🖨️ PDFを別タブで開く（高速版）
+                    🖨️ 印刷 🖨️
                 </button>
                 """
                 
