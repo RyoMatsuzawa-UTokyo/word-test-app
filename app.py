@@ -211,7 +211,7 @@ else:
         st.sidebar.markdown("---")
         st.sidebar.header("2. テスト設定")
         
-        test_type = st.sidebar.selectbox("出題形式", ["記述式", "4択式"])
+        test_type = st.sidebar.selectbox("出題形式", ["記述式", "客観式"])
 
         min_id = int(df['id'].min())
         max_id = int(df['id'].max())
@@ -233,12 +233,12 @@ else:
 
         st.sidebar.markdown("---")
         st.sidebar.header("3. 出題順序")
-        order_mode = st.sidebar.radio("並び順を選択", ["ID順 (順番通り)", "ランダム"], horizontal=True)
+        order_mode = st.sidebar.radio("並び順を選択", ["出題順", "ランダム"], horizontal=True)
         
         st.sidebar.markdown("---")
         mode = st.sidebar.radio("表示モード", ["問題用紙", "模範解答"], horizontal=True)
         
-        if st.sidebar.button("プレビューを表示", type="primary"):
+        if st.sidebar.button("問題を出力", type="primary"):
             target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
             
             if len(target_df) > 0 and start_id <= end_id:
@@ -260,7 +260,7 @@ else:
                     include_answers=include_answers
                 )
                 
-                st.success(f"作成完了！")
+                st.success(f"作成完了！プレビューは印刷ボタンを押して確認してね！")
                 
                 # --- PDFを高速に開くボタン ---
                 # Javascriptを使って、Base64データをBlobオブジェクトに変換し、URLを開きます。
