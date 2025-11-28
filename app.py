@@ -10,6 +10,7 @@ import base64
 import glob
 import os
 import random
+from streamlit_pdf_viewer import pdf_viewer  # プレビュー用の専用ライブラリ
 
 # --- 設定 ---
 st.set_page_config(page_title="単語テスト作成機", layout="wide")
@@ -188,19 +189,6 @@ def create_pdf(target_data, all_data_df, title, score_str, test_type, include_an
     buffer.seek(0)
     return buffer
 
-# --- プレビュー表示関数 (ここを修正) ---
-def display_pdf(pdf_buffer):
-    base64_pdf = base64.b64encode(pdf_buffer.getvalue()).decode('utf-8')
-    
-    # <object>タグを使用。これが最もChromeでブロックされにくい方法です。
-    # 画面いっぱいにPDFビューワーを表示します。
-    pdf_display = f'''
-    <object data="data:application/pdf;base64,{base64_pdf}" type="application/pdf" width="100%" height="1000px">
-        <p>ブラウザのPDFプレビューが利用できません。</p>
-    </object>
-    '''
-    st.markdown(pdf_display, unsafe_allow_html=True)
-
 # --- アプリ画面 ---
 st.title("単語テスト作成アプリ")
 
@@ -271,8 +259,33 @@ else:
                 
                 st.success(f"作成完了！")
                 
-                # PDFを表示
-                display_pdf(pdf_bytes)
+                # --- 1. 印刷用ボタン (HTMLリンクで実装) ---
+                # PDFをHTMLの中に埋め込んだデータを作成し、それを新しいタブで開かせる
+                # これによりChromeのセキュリティブロック（トップフレームへの遷移禁止）を回避します
+                pdf_b64 = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
+                html_content = f"""
+                <html>
+                <head><title>単語テスト印刷</title></head>
+                <body style="margin:0; padding:0; overflow:hidden;">
+                    <embed src="data:application/pdf;base64,{pdf_b64}" width="100%" height="100%" type="application/pdf">
+                </body>
+                </html>
+                """
+                html_b64 = base64.b64encode(html_content.encode('utf-8')).decode('utf-8')
+                
+                # ボタン風のリンクを表示
+                link_html = f'''
+                <a href="data:text/html;base64,{html_b64}" target="_blank" style="text-decoration:none;">
+                    <div style="background-color:#ff4b4b; color:white; padding:10px 15px; border-radius:5px; text-align:center; font-weight:bold; width:fit-content; display:inline-block;">
+                        🖨️ 新しいタブで開いて印刷
+                    </div>
+                </a>
+                '''
+                st.markdown(link_html, unsafe_allow_html=True)
+                
+                # --- 2. プレビュー画面 (専用ライブラリ) ---
+                st.write("▼ プレビュー")
+                pdf_viewer(input=pdf_bytes.getvalue(), width=800)
                 
             else:
                 st.error("指定された範囲にデータがないか、範囲設定が間違っています。")
