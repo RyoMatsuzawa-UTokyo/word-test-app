@@ -256,7 +256,7 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
                 
                 if include_answers:
                     c.setFont(JP_FONT_GOTHIC, 11)
-                    c.drawCentredString(x_base + col_width - 12*mm, line_1_y, str(correct_num))
+                    c.drawCentredString(x_base + col_width - 11*mm, line_1_y, str(correct_num))
                 
                 # 選択肢
                 c.setFont(JP_FONT_NAME, 9)
