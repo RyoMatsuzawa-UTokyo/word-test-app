@@ -19,12 +19,11 @@ DATA_DIR = "単語data"
 
 # --- フォント設定 ---
 try:
-    # 明朝体（標準の太さ）に戻しました
+    # HeiseiKakuGo-W5 (ゴシック・太め) から HeiseiMin-W3 (明朝・標準) に戻す
     pdfmetrics.registerFont(UnicodeCIDFont('HeiseiMin-W3'))
     JP_FONT_NAME = 'HeiseiMin-W3'
 except:
     JP_FONT_NAME = 'Helvetica'
-EN_FONT_NAME = 'Times-Roman'
 
 # --- ユーティリティ関数 ---
 def guess_pos(text):
@@ -234,12 +233,12 @@ else:
 
         st.sidebar.markdown("---")
         st.sidebar.header("3. 出題順序")
-        order_mode = st.sidebar.radio("並び順を選択", ["ID順 (順番通り)", "ランダム"], horizontal=True)
+        order_mode = st.sidebar.radio("並び順を選択", ["順番通り", "ランダム"], horizontal=True)
         
         st.sidebar.markdown("---")
         mode = st.sidebar.radio("表示モード", ["問題用紙", "模範解答"], horizontal=True)
         
-        if st.sidebar.button("プレビューを表示", type="primary"):
+        if st.sidebar.button("問題作成", type="primary"):
             target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
             
             if len(target_df) > 0 and start_id <= end_id:
@@ -261,7 +260,7 @@ else:
                     include_answers=include_answers
                 )
                 
-                st.success(f"作成完了！")
+                st.success(f"作成完了！プレビューは印刷ボタンを押して確認してね！")
                 
                 # --- PDFを高速に開くボタン ---
                 pdf_b64 = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
