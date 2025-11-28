@@ -19,8 +19,9 @@ DATA_DIR = "単語data"
 
 # --- フォント設定 ---
 try:
-    pdfmetrics.registerFont(UnicodeCIDFont('HeiseiKakuGo-W5'))
-    JP_FONT_NAME = 'HeiseiKakuGo-W5'
+    # 明朝体（標準の太さ）に戻しました
+    pdfmetrics.registerFont(UnicodeCIDFont('HeiseiMin-W3'))
+    JP_FONT_NAME = 'HeiseiMin-W3'
 except:
     JP_FONT_NAME = 'Helvetica'
 EN_FONT_NAME = 'Times-Roman'
@@ -211,7 +212,7 @@ else:
         st.sidebar.markdown("---")
         st.sidebar.header("2. テスト設定")
         
-        test_type = st.sidebar.selectbox("出題形式", ["記述式", "客観式"])
+        test_type = st.sidebar.selectbox("出題形式", ["記述式", "4択式"])
 
         min_id = int(df['id'].min())
         max_id = int(df['id'].max())
@@ -233,12 +234,12 @@ else:
 
         st.sidebar.markdown("---")
         st.sidebar.header("3. 出題順序")
-        order_mode = st.sidebar.radio("並び順を選択", ["出題順", "ランダム"], horizontal=True)
+        order_mode = st.sidebar.radio("並び順を選択", ["ID順 (順番通り)", "ランダム"], horizontal=True)
         
         st.sidebar.markdown("---")
         mode = st.sidebar.radio("表示モード", ["問題用紙", "模範解答"], horizontal=True)
         
-        if st.sidebar.button("問題を出力", type="primary"):
+        if st.sidebar.button("プレビューを表示", type="primary"):
             target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
             
             if len(target_df) > 0 and start_id <= end_id:
@@ -260,50 +261,7 @@ else:
                     include_answers=include_answers
                 )
                 
-                st.success(f"作成完了！プレビューは印刷ボタンを押して確認してね！")
+                st.success(f"作成完了！")
                 
                 # --- PDFを高速に開くボタン ---
-                # Javascriptを使って、Base64データをBlobオブジェクトに変換し、URLを開きます。
-                # これにより、URLに長大な文字列が入るのを防ぎ、処理落ちを回避します。
                 pdf_b64 = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
-                
-                js_code = f"""
-                <script>
-                    function openPdf() {{
-                        var binary = atob("{pdf_b64}");
-                        var array = [];
-                        for (var i = 0; i < binary.length; i++) {{
-                            array.push(binary.charCodeAt(i));
-                        }}
-                        var blob = new Blob([new Uint8Array(array)], {{type: 'application/pdf'}});
-                        var url = URL.createObjectURL(blob);
-                        window.open(url, '_blank');
-                    }}
-                </script>
-                <button onclick="openPdf()" style="
-                    background-color: #FF4B4B; 
-                    color: white; 
-                    border: none; 
-                    padding: 10px 20px; 
-                    text-align: center; 
-                    text-decoration: none; 
-                    display: inline-block; 
-                    font-size: 16px; 
-                    font-weight: bold;
-                    border-radius: 5px; 
-                    cursor: pointer;
-                    margin-bottom: 20px;
-                ">
-                    🖨️ 印刷 🖨️
-                </button>
-                """
-                
-                components.html(js_code, height=60)
-                
-                # --- プレビュー ---
-                # 専用ライブラリで見やすく表示
-                st.write("▼ 画面プレビュー")
-                pdf_viewer(input=pdf_bytes.getvalue(), width=800)
-                
-            else:
-                st.error("指定された範囲にデータがないか、範囲設定が間違っています。")
