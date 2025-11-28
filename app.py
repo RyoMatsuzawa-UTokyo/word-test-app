@@ -212,7 +212,7 @@ else:
         st.sidebar.markdown("---")
         st.sidebar.header("2. テスト設定")
         
-        test_type = st.sidebar.selectbox("出題形式", ["記述式", "4択式"])
+        test_type = st.sidebar.selectbox("出題形式", ["記述式", "客観式"])
 
         min_id = int(df['id'].min())
         max_id = int(df['id'].max())
