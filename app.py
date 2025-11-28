@@ -4,52 +4,24 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 import io
 import base64
 import glob
 import os
 import random
-import urllib.request
 
 # --- 設定 ---
 st.set_page_config(page_title="単語テスト作成機", layout="wide")
 DATA_DIR = "単語data"
 
-# --- 【重要】フォントの自動ダウンロードと登録 ---
-# IPAex明朝フォントを使用（商用利用も可能なオープンソースフォント）
-FONT_URL = "https://moji.or.jp/wp-content/ipafont/IPAexfont/ipaexm00401.ttf"
-FONT_FILE = "ipaexm.ttf"
-
-@st.cache_resource
-def setup_font():
-    """フォントファイルをダウンロードしてReportLabに登録する"""
-    if not os.path.exists(FONT_FILE):
-        try:
-            # IPAサイトから直接DLできない場合があるため、代替手段として
-            # Google Fonts等の安定したURLを使用するのが一般的ですが、
-            # ここでは確実性を期して、システムがフォントを持っていなければ
-            # HeiseiMin-W3にフォールバックするロジックにします。
-            
-            # 今回は、より軽量で確実なGithub上のフォントリソースなどを利用する手もありますが、
-            # 一旦、ユーザーの手間を減らすため、HeiseiMin-W3（埋め込みなし）ではなく
-            # 「HeiseiKakuGo-W5」などを試すか、確実に動作する標準フォント構成にします。
-            pass
-        except:
-            pass
-
-# 今回は「埋め込みなし」をやめて、ReportLab標準の日本語対応を強化します。
-# 以下の構成は、フォントファイルを必要とせず、かつ多くのビューワーで表示されやすい設定です。
-from reportlab.pdfbase.cidfonts import UnicodeCIDFont
+# --- フォント設定 ---
+# 視認性が高く表示崩れしにくいゴシック体を使用
 try:
-    # HeiseiMin-W3 は埋め込みではないため環境依存します。
-    # 確実に表示させるため、あえてゴシック体(HeiseiKakuGo-W5)に変えてみます。
-    # ゴシックの方が視認性が高く、ビューワーの互換性が高いことが多いです。
     pdfmetrics.registerFont(UnicodeCIDFont('HeiseiKakuGo-W5'))
     JP_FONT_NAME = 'HeiseiKakuGo-W5'
 except:
     JP_FONT_NAME = 'Helvetica'
-
 EN_FONT_NAME = 'Times-Roman'
 
 # --- ユーティリティ関数 ---
@@ -76,7 +48,7 @@ def draw_text_fitted(c, text, x, y, max_width, font_name, max_size, min_size=6):
                 new_size = min_size
             current_size = new_size
     except:
-        pass 
+        pass
     c.setFont(font_name, current_size)
     c.drawString(x, y, text)
 
@@ -164,7 +136,6 @@ def create_pdf(target_data, all_data_df, title, score_str, test_type, include_an
                     draw_text_fitted(c, str(item['japanese']), x_base + w_id + w_word + 2*mm, text_y - 3.5, w_ans - 4*mm, JP_FONT_NAME, 9)
             
             else:
-                # === 4択式 ===
                 c.rect(x_base, y_base - row_height, col_width, row_height)
                 
                 correct_ans = item['japanese']
@@ -201,16 +172,12 @@ def create_pdf(target_data, all_data_df, title, score_str, test_type, include_an
                 if include_answers:
                     c.drawCentredString(x_base + col_width - 13*mm, line_1_y, str(correct_num))
                 
-                # 選択肢の描画（ここを微修正）
-                # フォントをゴシックに変えたのでサイズ調整
                 c.setFont(JP_FONT_NAME, 9)
+                c.setFillColorRGB(0, 0, 0)
                 
                 def draw_choice(idx, txt, cx, cy):
                     label = f"{idx}. {txt}"
-                    if len(label) > 18: 
-                        label = label[:17] + ".."
-                    # 色を真っ黒に指定（念のため）
-                    c.setFillColorRGB(0, 0, 0)
+                    if len(label) > 18: label = label[:17] + ".."
                     c.drawString(cx, cy, label)
 
                 draw_choice(1, choices[0], x_base + 4*mm, line_2_y)
@@ -270,7 +237,8 @@ else:
         st.sidebar.markdown("---")
         mode = st.sidebar.radio("表示モード", ["問題用紙", "模範解答"], horizontal=True)
         
-        if st.sidebar.button("プレビューを表示", type="primary"):
+        # --- 実行ボタン ---
+        if st.sidebar.button("テストPDFを作成", type="primary"):
             target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
             
             if len(target_df) > 0 and start_id <= end_id:
@@ -281,25 +249,29 @@ else:
 
                 include_answers = (mode == "模範解答")
                 title_text = title_input + ("【解答】" if include_answers else "")
-                all_data_df = df
-
+                
+                # PDF作成
                 pdf_bytes = create_pdf(
                     target_df.to_dict('records'), 
-                    all_data_df,
+                    df,
                     title_text, 
                     score_input,
                     test_type, 
                     include_answers=include_answers
                 )
                 
-                st.success(f"作成完了！")
+                st.success("作成完了！下のボタンを押すと新しいタブでPDFが開きます。")
                 
-                # --- 表示 ---
-                # <embed>タグは、フォントがOSに依存する環境だと表示崩れの原因になりますが
-                # HeiseiKakuGo-W5 に変更したので、明朝よりは表示確率が上がります。
-                base64_pdf = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
-                pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}#toolbar=1&navpanes=0&scrollbar=1" width="100%" height="1200" type="application/pdf" />'
-                st.markdown(pdf_display, unsafe_allow_html=True)
+                # --- PDFを新しいタブで開くリンクを生成 ---
+                # PDFをBase64文字列に変換
+                pdf_b64 = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
+                
+                # HTMLを作成（ブラウザ全体でPDFを表示するページ）
+                pdf_href = f'<a href="data:application/pdf;base64,{pdf_b64}" target="_blank" type="application/pdf" style="display: inline-block; padding: 10px 20px; background-color: #FF4B4B; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">🖨️ PDFを新しいタブで開く</a>'
+                
+                st.markdown(pdf_href, unsafe_allow_html=True)
+                
+                st.info("※ボタンを押しても開かない場合は、ブラウザのポップアップブロックを許可してください。")
                 
             else:
                 st.error("指定された範囲にデータがないか、範囲設定が間違っています。")
