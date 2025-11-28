@@ -24,6 +24,7 @@ try:
     JP_FONT_NAME = 'HeiseiMin-W3'
 except:
     JP_FONT_NAME = 'Helvetica'
+EN_FONT_NAME = 'Times-Roman'
 
 # --- ユーティリティ関数 ---
 def guess_pos(text):
