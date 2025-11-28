@@ -81,14 +81,14 @@ def load_data(filepath):
         st.error(f"読み込みエラー: {e}")
         return None
 
-# --- PDF作成関数（デザイン強化版） ---
+# --- PDF作成関数（ワイドデザイン版） ---
 def create_pdf(target_data, all_data_df, title, test_type, include_answers=False):
     buffer = io.BytesIO()
     c = canvas.Canvas(buffer, pagesize=A4)
     width, height = A4
     
     # デザイン用カラー（白黒印刷対応）
-    GRAY_BG = (0.95, 0.95, 0.95) # 極めて薄いグレー（シマシマ背景用）
+    GRAY_BG = (0.96, 0.96, 0.96) # 極めて薄いグレー
     
     # 選択肢生成用の辞書作成
     pos_groups = {"verb_like": [], "adj_like": [], "noun_like": [], "adv_like": []}
@@ -96,17 +96,17 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
     for m in unique_meanings:
         pos_groups[guess_pos(m)].append(m)
 
-    # レイアウト設定
-    margin_x = 15 * mm
+    # レイアウト設定（幅広調整）
+    margin_x = 10 * mm  # 左右余白を減らして描画領域を拡大 (15 -> 10)
     margin_y = 15 * mm
-    col_gap = 12 * mm
+    col_gap = 8 * mm    # 中央の隙間も少し詰める (12 -> 8)
     cols = 2
     
     # 行数設定
     if test_type == "記述式":
         rows_per_col = 25
     else:
-        rows_per_col = 10 # 4択なので行の高さを確保
+        rows_per_col = 10
         
     items_per_page = cols * rows_per_col
     
@@ -131,22 +131,22 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
         # タイトル下の装飾二重線
         line_y = height - margin_y - 12*mm
         c.setLineWidth(1.0)
-        c.line(margin_x, line_y, width - margin_x, line_y) # 太い線
+        c.line(margin_x, line_y, width - margin_x, line_y)
         c.setLineWidth(0.3)
-        c.line(margin_x, line_y - 1*mm, width - margin_x, line_y - 1*mm) # 細い線
+        c.line(margin_x, line_y - 1*mm, width - margin_x, line_y - 1*mm)
 
         # 氏名・日付欄
         c.setFont(JP_FONT_NAME, 10)
         info_y = height - margin_y - 22*mm
         c.drawRightString(width - margin_x - 50*mm, info_y, "日付: ______ / ______   氏名: ______________________")
         
-        # 点数ボックス（右上に配置）
+        # 点数ボックス
         score_box_w = 40 * mm
         score_box_h = 14 * mm
         score_box_x = width - margin_x - score_box_w
         score_box_y = height - margin_y - 28*mm
         
-        c.setLineWidth(1.2) # 枠を太く
+        c.setLineWidth(1.2)
         c.rect(score_box_x, score_box_y, score_box_w, score_box_h)
         
         c.setFont(JP_FONT_GOTHIC, 11)
@@ -164,7 +164,6 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
         start_y = height - margin_y - header_height
         page_data = target_data[page * items_per_page : (page + 1) * items_per_page]
         
-        # 描画位置の初期化
         c.setLineWidth(0.3) 
 
         for i, item in enumerate(page_data):
@@ -183,8 +182,9 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
 
             # --- 記述式モード ---
             if test_type == "記述式":
-                w_id = col_width * 0.12
-                w_word = col_width * 0.43
+                # 配分調整: ID幅を削って(10%)、単語と解答欄を45%ずつに拡大
+                w_id = col_width * 0.10
+                w_word = col_width * 0.45
                 w_ans = col_width * 0.45
                 
                 # 下線を点線にしてノート風に
@@ -214,7 +214,6 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
 
             # --- 客観式（4択）モード ---
             else:
-                # 外枠を描く
                 c.setLineWidth(0.3)
                 c.setStrokeColorRGB(0, 0, 0)
                 c.rect(x_base, y_base - row_height, col_width, row_height)
@@ -273,7 +272,7 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
                 draw_choice(3, choices[2], x_base + 5*mm, line_3_y)
                 draw_choice(4, choices[3], x_base + (col_width/2) + 2*mm, line_3_y)
 
-        # ページの最後に、コラムごとの大枠を描く（全体が締まる）
+        # ページの最後に、コラムごとの大枠を描く
         if page_data:
             c.setLineWidth(1.0)
             c.setStrokeColorRGB(0, 0, 0)
