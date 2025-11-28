@@ -1,0 +1,1969 @@
+id,english,japanese
+1,class,クラス
+2,library,図書館
+3,question,質問
+4,word,単語
+5,science,科学
+6,mathematics,数学
+7,study,勉強する
+8,learn,を知る
+9,teach,を教える
+10,answer,に答える
+11,read,読む
+12,write,を書く
+13,noon,正午
+14,midnight,真夜中
+15,time,時間
+16,date,日付
+17,week,週
+18,month,月
+19,year,年
+20,future,将来
+21,begin,を始める
+22,start,始まる
+23,open,を開ける
+24,keep,を持っている
+25,life,生活
+26,name,名前
+27,age,年齢
+28,live,生きる
+29,die,死ぬ
+30,play,遊ぶ
+31,enjoy,を楽しむ
+32,work,働く
+33,try,をやってみる
+34,drink,を飲む
+35,eat,を食べる
+36,have,を持っている
+37,different,違った
+38,absent,欠席で
+39,ready,用意・準備ができて
+40,go,行く
+41,come,来る
+42,bring,を持ってくる
+43,send,を送る
+44,walk,歩く
+45,run,走る
+46,fly,飛ぶ
+47,fall,落ちる
+48,swim,泳ぐ
+49,long,長い
+50,tall,背の高い
+51,low,低い
+52,short,短い
+53,wear,を着ている
+54,make,を作る
+55,cook,料理する
+56,cut,を切る
+57,freeze,凍る
+58,wash,を洗う
+59,put,を置く
+60,stay,とどまる
+61,happy,うれしい
+62,glad,うれしい
+63,sad,悲しい
+64,sorry,すまなく思って
+65,afraid,恐れて
+66,laugh,笑う
+67,cry,泣く
+68,shout,叫ぶ
+69,wish,であればいいと思う
+70,promise,約束する
+71,let,に させる
+72,stand,立つ
+73,at,で
+74,at,に
+75,at,に
+76,in,の中に
+77,in,に
+78,in,を着て
+79,on,の上に
+80,on,に
+81,from,から
+82,from,から
+83,to,に
+84,to,まで
+85,for,に向かって
+86,for,のあいだ
+87,for,のために
+88,of,の
+89,of,のうちの
+90,of,から
+91,with,といっしょに
+92,with,のある
+93,with,で
+94,along,に沿って
+95,across,を横断して
+96,across,の向こう側に
+97,see,見える
+98,look,を見る
+99,watch,よく見る
+100,hear,が聞こえる
+101,listen,を聞く
+102,feel,を感じる
+103,front,正面
+104,side,側
+105,back,うしろ
+106,top,頂上
+107,right,右の
+108,left,左の
+109,get,を得る
+110,take,を取る
+111,give,を与える
+112,turn,向く
+113,change,変わる
+114,become,になる
+115,many,多くの
+116,much,たくさんの
+117,few,ほとんどない
+118,little,ほとんどない
+119,some,いくらかの
+120,any,いくらか
+121,help,手伝う
+122,thank,に感謝する
+123,welcome,を歓迎する
+124,worry,心配する
+125,say,言う
+126,tell,話す
+127,talk,話す
+128,speak,話す
+129,man,男
+130,woman,女
+131,child,子ども
+132,friend,友人
+133,beautiful,美しい
+134,pretty,かわいい
+135,cute,かわいい
+136,think,思う
+137,believe,信じる
+138,know,知っている
+139,understand,がわかる
+140,like,を好む
+141,want,したい
+142,hope,したいと思う
+143,need,を必要とする
+144,long,を切望する
+145,popular,人気のある
+146,favorite,お気に入りの
+147,clean,きれいな
+148,easy,簡単な
+149,TRUE,本当の
+150,sure,確信して
+151,early,早い
+152,late,遅い
+153,great,偉大な
+154,meet,に会う
+155,visit,を訪問する
+156,invite,を招待する
+157,heavy,重い
+158,light,明るい
+159,bright,明るい
+160,dark,暗い
+161,use,を使う
+162,hold,を持つ
+163,touch,触れる
+164,push,押す
+165,catch,をつかまえる
+166,throw,投げる
+167,brush,を磨く
+168,shake,を振る
+169,about,のあちこちに
+170,about,について
+171,around,のまわりを
+172,around,のまわりに
+173,before,の前に
+174,after,のあとで
+175,after,のあとに
+176,by,のそばに
+177,by,までに
+178,by,によって
+179,near,の近くに
+180,beside,のそばに
+181,over,の上に
+182,over,を越えて
+183,over,より多く
+184,above,の上に
+185,above,より上で
+186,under,の下に
+187,under,未満で
+188,below,の下に
+189,below,より下で
+190,between,のあいだに
+191,among,のあいだに
+192,toward,のほうへ
+193,and,そして
+194,but,しかし
+195,or,または
+196,because,なぜなら だから
+197,if,もしも ならば
+198,buy,を買う
+199,sell,を売る
+200,spend,を費やす
+201,waste,費やす
+202,exchange,を交換する
+203,own,を所有する
+204,share,を分け合う
+205,just,ちょうど
+206,then,それから
+207,ago,前に
+208,last,最後の
+209,later,あとで
+210,once,一度
+211,lie,横たわる
+212,lay,を横たえる
+213,rest,休む
+214,sleep,眠る
+215,wake,目を覚ます
+216,sit,座る
+217,tour,旅行
+218,travel,旅行
+219,trip,旅行
+220,voyage,船旅
+221,course,進路
+222,flight,飛行
+223,drive,運転する
+224,ride,乗る
+225,leave,去る
+226,end,終わる
+227,finish,を終える
+228,stop,止まる
+229,someone,だれか
+230,anyone,だれか
+231,something,何か
+232,anything,何か
+233,everyone,だれでも
+234,everything,すべてのもの・こと
+235,nobody,だれも ない
+236,nothing,何も ない
+237,none,だれも ない
+238,garbage,ごみ
+239,trash,ごみ
+240,plastic,ビニール製の
+241,care,気にする
+242,please,を喜ばせる
+243,trouble,を悩ます
+244,excuse,を許す
+245,pardon,を許す
+246,health,健康
+247,heart,心臓
+248,tooth,歯
+249,cancer,がん
+250,hunger,飢え
+251,thirsty,のどが渇いた
+252,supper,夕食
+253,east,東
+254,west,西
+255,south,南
+256,north,北
+257,outside,外側
+258,inside,内側
+259,wrong,間違った
+260,strange,奇妙な
+261,tired,疲れた
+262,dangerous,危険な
+263,terrible,恐ろしい
+264,well,うまく
+265,so,そのように
+266,too,もまた
+267,strongly,強く
+268,often,よく
+269,ask,尋ねる
+270,train,を訓練する
+271,show,を見せる
+272,explain,説明する
+273,mean,を意味する
+274,practice,練習する
+275,remember,覚えている
+276,forget,忘れる
+277,art,芸術
+278,poem,詩
+279,story,話
+280,fiction,作り話
+281,sound,音
+282,sing,を歌う
+283,country,国
+284,public,公共の
+285,person,人
+286,host,主人
+287,nurse,看護師
+288,astronaut,宇宙飛行士
+289,important,重要な
+290,main,おもな
+291,special,特別の
+292,common,共通の
+293,international,国際的な
+294,foreign,外国の
+295,native,生まれた土地
+296,soon,すぐに
+297,already,すでに
+298,yet,まだ
+299,still,まだ
+300,suddenly,突然
+301,can,できる
+302,may,かもしれない
+303,must,しなければならない
+304,will,だろう
+305,shall,しましょうか
+306,would,したものだった
+307,should,すべきである
+308,matter,問題
+309,problem,問題
+310,purpose,目的
+311,plan,計画
+312,activity,活動
+313,book,本
+314,magazine,雑誌
+315,telephone,電話
+316,list,名簿
+317,message,伝言
+318,mail,郵便
+319,call,電話をかける
+320,letter,手紙
+321,paper,紙
+322,news,知らせ
+323,program,番組
+324,schedule,予定
+325,against,に反対して
+326,against,に寄り掛かって
+327,against,を背景にして
+328,during,のあいだずっと
+329,during,のあいだに
+330,behind,のうしろに
+331,behind,に遅れて
+332,until,まで
+333,till,まで
+334,through,を通り抜けて
+335,through,のあいだずっと
+336,into,の中に
+337,all,全部
+338,each,それぞれ
+339,every,どの も
+340,both,両方
+341,either,どちらか一方
+342,neither,どちらも ない
+343,another,もうひとつ の
+344,other,もう一方
+345,such,そのような
+346,careful,注意深い
+347,safe,安全な
+348,kind,親切な
+349,win,勝つ
+350,lose,負ける
+351,find,を見つける
+352,miss,をしそこなう
+353,save,を貯める
+354,break,を壊す
+355,business,仕事
+356,job,仕事
+357,office,事務所
+358,factory,工場
+359,machine,機械
+360,coin,硬貨
+361,come here,がやってきた
+362,I’m coming,すぐ行くよ
+363,come to do,するようになる
+364,come from,の出身だ
+365,come across,人 に偶然出会う
+366,come across,物 を見つける
+367,come out,明らかになる
+368,come out of,から出てくる
+369,come down,降りてくる
+370,come in,入る
+371,come along with,といっしょに行く
+372,come up with,を思いつく
+373,go bad,悪くなる
+374,go -ing,して移動する
+375,be gone,存在しない
+376,go away,なくなる
+377,to go,持ち帰り
+378,go out,外へ出る
+379,go back,戻る
+380,go up,上がる
+381,go down,降りる
+382,go on -ing,し続ける
+383,go off,鳴る
+384,go through,を経験する
+385,simple,単純な
+386,difficult,難しい
+387,free,自由な
+388,soft,やわらかい
+389,hard,難しい
+390,rich,金持ちの
+391,poor,貧しい
+392,silent,沈黙した
+393,quiet,静かな
+394,wet,ぬれた
+395,present,を贈る
+396,collect,を集める
+397,fish,魚
+398,plant,植物
+399,fruit,果物
+400,wood,木
+401,leaf,葉
+402,flower,花
+403,kindergarten,幼稚園
+404,elementary school,小学校
+405,junior high school,中学校
+406,senior high school,高校
+407,college,大学
+408,university,大学
+409,give a bath,を風呂に入れる
+410,give a kiss,にキスする
+411,give a cleaning,をきれいに掃除する
+412,give a ride,を車で送る
+413,give money to charity,慈善事業にお金を使う
+414,give me a break,かんべんして
+415,give up,やめる
+416,give back,を返す
+417,give in,降参する
+418,give a call,に電話する
+419,give a speech,スピーチをする
+420,give birth to,を産む
+421,get back,戻る
+422,get to,に着く
+423,get home,帰宅する
+424,get sick,病気になる
+425,get late,遅くなる
+426,get married,結婚する
+427,get cold,寒くなる
+428,get up,起きる
+429,get on / off,に乗る
+430,get in / out of,に乗る
+431,get away from,から逃げる
+432,get along with,とうまくやる
+433,grow,成長する
+434,happen,起こる
+435,appear,現れる
+436,disappear,見えなくなる
+437,continue,続ける
+438,follow,ついていく
+439,holiday,休日
+440,fun,楽しみ
+441,hobby,趣味
+442,party,パーティー
+443,movie,映画
+444,camp,キャンプ
+445,home,家庭
+446,floor,床
+447,roof,屋根
+448,hall,廊下
+449,step,歩み
+450,stair,階段
+451,yard,庭
+452,place,場所
+453,site,場所
+454,corner,かど
+455,block,ブロック
+456,way,道
+457,take a shower,シャワーを浴びる
+458,take a break,休憩をとる
+459,take a walk,散歩をする
+460,take a picture,写真を撮る
+461,take out,を連れ出す
+462,take away,を運び去る
+463,take off,を脱ぐ
+464,take A for B,AをBだと思う
+465,take care of,の世話をする
+466,take part in,に参加する
+467,take place,行われる
+468,take a look at,を見る
+469,have another drink,もう杯飲む
+470,have a phone call,電話がかかってくる
+471,have a seat,座る
+472,have lunch,ランチを食べる
+473,have a bath,風呂に入る
+474,have a break,ひと休みする
+475,have a cold,風邪をひく
+476,have a good time,楽しい時を過ごす
+477,have no idea,わからない
+478,have something to do with,と関係がある
+479,have nothing to do with,と何の関係もない
+480,have only to do,しさえすればよい
+481,village,村
+482,neighbor,となりの人
+483,address,住所
+484,history,歴史
+485,peace,平和
+486,culture,文化
+487,custom,慣習
+488,move,動く
+489,arrive,着く
+490,pass,通る
+491,cross,横切る
+492,enter,入る
+493,air,空気
+494,land,土地
+495,island,島
+496,earth,地球
+497,sun,太陽
+498,planet,惑星
+499,sentence,文
+500,note,メモ
+501,subject,学科
+502,seem,見える
+503,guess,を推測する
+504,decide,を決める
+505,keep a secret,秘密を守る
+506,keep a diary,日記をつける
+507,keep order,秩序を守る
+508,keep in a safe place,を安全な場所にしまう
+509,keep on -ing,し続ける
+510,keep away from,に近づかない
+511,keep from -ing,に させない
+512,keep up,続く
+513,keep up with,に遅れずについていく
+514,keep in touch with,と連絡を保つ
+515,keep in mind,を心に留めておく
+516,keep an eye on,から目を離さない
+517,make a suggestion,提案をする
+518,make a change,変更を加える
+519,be made to do,させられる
+520,make it,うまくいく
+521,make a mistake,間違いをする
+522,make a noise,音を立てる
+523,make a decision,決定する
+524,make an effort,努力する
+525,make sure of,を確かめる
+526,make friends with,と親しくなる
+527,make up one’s mind,決心する
+528,make fun of,をからかう
+529,store,店
+530,hospital,病院
+531,clothes,衣服
+532,bath,入浴
+533,comb,くし
+534,film,映画
+535,gift,贈り物
+536,flag,旗
+537,paint,ペンキ
+538,since,して以来
+539,while,するあいだに
+540,though,だけれども
+541,second,秒
+542,hour,時間
+543,century,世紀
+544,out,外へ
+545,off,離れて
+546,away,離れて
+547,far,遠くに
+548,up,上の方に
+549,down,下の方に
+550,forward,前方に
+551,straight,まっすぐに
+552,abroad,外国に
+553,only,ただ だけ
+554,alone,ひとりで
+555,also,もまた
+556,else,そのほかに
+557,even,でさえ
+558,set,を置く
+559,fix,を固定する
+560,draw,描く
+561,carry,を運ぶ
+562,join,参加する
+563,wait,待つ
+564,celebrate,祝う
+565,weather,天気
+566,cloud,雲
+567,rain,雨
+568,snow,雪
+569,fine,元気な
+570,half,半分の
+571,enough,十分な
+572,more,もっと多く
+573,most,大部分
+574,someday,いつか
+575,ever,これまでに
+576,forever,永久に
+577,classmate,同級生
+578,lesson,授業
+579,examination,試験
+580,graduation,卒業
+581,meal,食事
+582,dessert,デザート
+583,recipe,調理法
+584,restaurant,レストラン
+585,smell,のにおいがする
+586,taste,な味がする
+587,delicious,とてもおいしい
+588,bitter,苦い
+589,wide,幅が広い
+590,deep,深い
+591,slow,ゆっくりした
+592,fast,速い
+593,quick,はやい
+594,act,行動する
+595,perform,演じる
+596,hurry,急ぐ
+597,return,戻る
+598,notice,気がつく
+599,bear,を産む
+600,slide,すべる
+601,ceremony,儀式
+602,contest,競技
+603,prize,賞
+604,role,役
+605,size,大きさ
+606,form,姿・形
+607,type,型
+608,style,様式
+609,part,部分
+610,point,点
+611,line,線
+612,hole,穴
+613,airplane,飛行機
+614,airport,空港
+615,seat,座席
+616,engine,エンジン
+617,sail,帆
+618,imagine,想像する
+619,realize,に気づく
+620,death,死
+621,accident,事故
+622,damage,損害
+623,bomb,爆弾
+624,pain,痛み
+625,conversation,会話
+626,interview,会見
+627,discussion,討論
+628,opinion,意見
+629,advice,忠告
+630,expression,表現
+631,attention,注意
+632,judge,判断する
+633,check,点検する
+634,include,を含む
+635,solve,を解決する
+636,report,報告する
+637,communicate,意思を伝え合う
+638,contact,に連絡する
+639,impress,に感銘を与える
+640,express,を表現する
+641,appeal,訴える
+642,whisper,ささやく
+643,respond,答える
+644,nod,うなずく
+645,agree,に賛成する
+646,support,を支える
+647,trust,を信頼する
+648,gather,集まる
+649,alive,生きている
+650,asleep,眠って
+651,wild,野生の
+652,calm,おだやかな
+653,mild,おだやかな
+654,mysterious,不思議な
+655,sacred,神聖な
+656,energy,エネルギー
+657,skill,熟練
+658,courage,勇気
+659,chance,機会
+660,goal,目標
+661,build,を建てる
+662,develop,を発達させる
+663,improve,を改良する
+664,rise,のぼる
+665,raise,をあげる
+666,climb,登る
+667,increase,増える
+668,drop,落ちる
+669,sink,沈む
+670,introduce,を紹介する
+671,produce,を生産する
+672,reduce,を減らす
+673,government,政府
+674,president,大統領
+675,capital,首都
+676,society,社会
+677,war,戦争
+678,rule,規則
+679,population,人口
+680,generation,世代
+681,technology,技術
+682,real,本当の
+683,similar,似た
+684,unique,独特の
+685,pleasure,楽しみ
+686,joy,喜び
+687,interest,関心
+688,pity,あわれみ
+689,humor,ユーモア
+690,dream,夢
+691,secret,秘密
+692,feeling,感覚
+693,character,性格
+694,voice,声
+695,record,記録
+696,noise,騒音
+697,bring,物を持ってくる
+698,bring to,を に連れていく
+699,bring happiness,幸せをもたらす
+700,bring wealth,富をもたらす
+701,bring chaos,混乱をもたらす
+702,bring in,に持ち込む
+703,bring back,を返す
+704,bring up,を育てる
+705,bring about,を引き起こす
+706,bring out,を出す
+707,bring together,をまとめる
+708,bring oneself to do,する気になる
+709,put an arm around,腕を回す
+710,put one’s name,名前を記入する
+711,put in danger,を危険にさらす
+712,put to use,を利用する
+713,put in,に入れる
+714,put on,を着る
+715,put out,を消す
+716,put off,を延期する
+717,put up,を掲げる
+718,put down,を下に置く
+719,put back,を戻す
+720,put away,を片づける
+721,human,人間の
+722,male,男性の
+723,female,女性の
+724,oneself,自分自身
+725,hero,英雄
+726,stranger,見知らぬ人
+727,guest,客
+728,passenger,乗客
+729,chairperson,議長
+730,audience,聴衆
+731,relative,親せき
+732,youth,青春時代
+733,area,面積
+734,stage,段階
+735,space,空間
+736,shelter,避難
+737,environment,環境
+738,continent,大陸
+739,horizon,地平線
+740,border,国境
+741,distance,距離
+742,view,眺め
+743,scene,光景
+744,case,場合
+745,sign,記号
+746,mark,跡
+747,symbol,象徴
+748,sample,見本
+749,model,模型
+750,feature,特徴
+751,guide,案内人
+752,source,源
+753,fail,失敗する
+754,suffer,苦しむ
+755,injure,を傷つける
+756,careless,不注意な
+757,branch,枝
+758,blossom,花
+759,bloom,花
+760,storm,嵐
+761,earthquake,地震
+762,ray,光線
+763,shadow,影
+764,shade,陰
+765,temperature,温度
+766,field,野原
+767,desert,砂漠
+768,atmosphere,大気
+769,certainly,確かに
+770,probably,おそらく
+771,perhaps,たぶん
+772,maybe,たぶん
+773,especially,特に
+774,actually,実際に
+775,almost,ほとんど
+776,hardly,ほとんど ない
+777,able,できる
+778,enable,可能にする
+779,possible,可能な
+780,impossible,不可能な
+781,sick,病気の
+782,ill,病気で
+783,doctor,医者
+784,meter,メートル
+785,mile,マイル
+786,ton,トン
+787,percent,パーセント
+788,dozen,ダース
+789,pay,支払う
+790,receive,を受け取る
+791,lend,を貸す
+792,borrow,を借りる
+793,lucky,幸運な
+794,famous,有名な
+795,familiar,なじみの
+796,fresh,新鮮な
+797,clear,澄んだ
+798,wise,賢い
+799,knowledge,知識
+800,fact,事実
+801,truth,真実
+802,reason,理由
+803,meaning,意味
+804,authority,権威
+805,perfect,完ぺきな
+806,precious,貴重な
+807,convenient,便利な
+808,professional,プロの
+809,several,いくつかの
+810,extra,余分の
+811,whole,全体の
+812,full,いっぱいの
+813,empty,からの
+814,equal,等しい
+815,less,より少ない
+816,least,もっとも少ない
+817,mind,心
+818,sense,感覚
+819,mood,気分
+820,fear,恐れ
+821,memory,記憶
+822,spirit,精神
+823,ghost,幽霊
+824,certain,確信して
+825,aware,気づいて
+826,angry,怒って
+827,dead,死んだ
+828,weak,弱い
+829,unable,できない
+830,unfair,不公平な
+831,unknown,知られていない
+832,unlike,と違って
+833,boring,退屈な
+834,bored,退屈して
+835,exciting,わくわくさせるような
+836,excited,興奮して
+837,interesting,おもしろい
+838,interested,興味をもって
+839,surprising,驚くべき
+840,surprised,驚いて
+841,oil,石油
+842,glass,ガラス
+843,board,板
+844,tube,管
+845,shape,姿・形
+846,pattern,模様
+847,tradition,伝統
+848,item,記事
+849,congratulation,祝い
+850,museum,博物館
+851,statue,像
+852,exhibition,展覧会
+853,burn,燃える
+854,burst,破裂する
+855,shine,輝く
+856,blow,吹く
+857,spread,広がる
+858,separate,を引き離す
+859,divide,を分ける
+860,choose,選ぶ
+861,prefer,のほうを好む
+862,hate,をひどく嫌う
+863,compare,と比較する
+864,distinguish,を区別する
+865,hire,を雇う
+866,order,命令する
+867,deliver,を配達する
+868,leader,指導者
+869,engineer,技師
+870,clerk,事務員
+871,actor,俳優
+872,indeed,実に
+873,exactly,ちょうど
+874,quite,まったく
+875,nearly,ほとんど
+876,rather,かなり
+877,pick,をつみ取る
+878,pull,引く
+879,ring,鳴る
+880,lean,傾く
+881,dig,を掘る
+882,fill,を満たす
+883,swing,を振る
+884,rub,をこする
+885,adventure,冒険
+886,event,できごと
+887,invent,を発明する
+888,prevent,をさまたげる
+889,look for,を探す
+890,look after,の世話をする
+891,look around,見回す
+892,look like,に似ている
+893,look up,を調べる
+894,look up to,を尊敬する
+895,write to,に手紙を書く
+896,write down,を書き留める
+897,grow up,成長する
+898,cut down,を切り倒す
+899,go to bed,寝る
+900,wake up,目を覚ます
+901,be good at,がじょうずである
+902,be late for,に遅れる
+903,be fond of,が好きである
+904,be afraid of,を恐れる
+905,be short of,が不足している
+906,be proud of,を誇りにしている
+907,be familiar with,に詳しい
+908,be familiar to,によく知られている
+909,be pleased with,に満足している
+910,be filled with,で満ちている
+911,be based on,に基づいている
+912,be lost,道に迷っている
+913,break up,ばらばらにする
+914,break out,起こる
+915,break down,を 壊す
+916,break into,に押し入る
+917,cheer up,元気を出す
+918,do one’s best,最善をつくす
+919,do without,なしですます
+920,at first,最初は
+921,at last,ついに
+922,first of all,まず第一に
+923,for the first time,初めて
+924,in the end,ついに
+925,in time,間に合って
+926,on time,時間どおりに
+927,right away,すぐに
+928,at once,すぐに
+929,in a minute,すぐに
+930,at the same time,同時に
+931,so far,今までのところ
+932,by now,今ごろは
+933,after a while,しばらくして
+934,at the age of,歳のときに
+935,be made from,から作られる
+936,be made of,でできている
+937,depend on,に頼る
+938,find out,知る
+939,figure out,を理解する
+940,carry out,を実行する
+941,run out of,を使い切る
+942,run away,逃げる
+943,be known to,に知られている
+944,be known as,として知られている
+945,less than,より少なく
+946,more than,より多く
+947,more and more,ますます多くの
+948,as many as,も
+949,a lot of / lots of,たくさんの
+950,a few,少しはある
+951,a little,少しはある
+952,quite a few,かなりたくさんの
+953,quite a little,かなりたくさんの
+954,plenty of,たくさんの
+955,a number of,いくつかの
+956,a large number of,多数の
+957,a small number of,わずかな
+958,hundreds of,何百もの
+959,most of,の大部分
+960,full of,でいっぱいの
+961,add,を加える
+962,create,を創作する
+963,design,を設計する
+964,print,印刷する
+965,complete,を完成する
+966,recycle,を再生利用する
+967,breed,を飼育する
+968,influence,に影響を与える
+969,wrap,を包む
+970,cover,をおおう
+971,decorate,を飾る
+972,pack,荷作りする
+973,discover,を発見する
+974,recover,回復する
+975,single,ただひとつ の
+976,twice,2度
+977,double,2重の
+978,quarter,4分の
+979,bit,かけら
+980,piece,ひとつ
+981,pair,組
+982,couple,対
+983,million,00万
+984,billion,0億
+985,anger,怒り
+986,emotion,感情
+987,passion,情熱
+988,favor,好意
+989,blood,血
+990,breath,呼吸
+991,wound,を傷つける
+992,disease,病気
+993,headache,頭痛
+994,medicine,薬
+995,cure,治療
+996,mental,精神の
+997,physical,肉体の
+998,athlete,運動選手
+999,vision,視力
+1000,correct,正しい
+1001,mistake,間違い
+1002,FALSE,いつわりの
+1003,personality,個性
+1004,habit,習慣
+1005,private,個人的な
+1006,personal,個人の
+1007,individual,個々の
+1008,background,生い立ち
+1009,condition,状態
+1010,degree,度
+1011,scale,体重計
+1012,speed,速さ
+1013,term,学期
+1014,score,得点
+1015,difference,違い
+1016,imagination,想像
+1017,attack,攻撃する
+1018,hit,打つ
+1019,beat,たたく
+1020,bite,かむ
+1021,hunt,狩る
+1022,fight,戦う
+1023,shoot,撃つ
+1024,hurt,を傷つける
+1025,kill,を殺す
+1026,destroy,を破壊する
+1027,effort,努力
+1028,experience,経験
+1029,success,成功
+1030,result,結果
+1031,prepare,準備をする
+1032,reach,に到着する
+1033,quit,やめる
+1034,swallow,を飲み込む
+1035,roll,転がる
+1036,hang,を掛ける
+1037,search,さがす
+1038,sigh,ため息をつく
+1039,honest,正直な
+1040,gentle,優しい
+1041,brave,勇敢な
+1042,nervous,神経質な
+1043,sensitive,敏感な
+1044,stupid,愚かな
+1045,basic,基本的な
+1046,necessary,必要な
+1047,usual,いつもの
+1048,ordinary,ふつうの
+1049,daily,毎日の
+1050,typical,典型的な
+1051,domestic,国内の
+1052,universal,世界共通の
+1053,fundamental,基本的な
+1054,lead,導く
+1055,conduct,指揮する
+1056,control,を支配する
+1057,offer,を申し出る
+1058,dive,飛び込む
+1059,greet,にあいさつをする
+1060,cheer,歓声を上げる
+1061,praise,をほめる
+1062,respect,を尊敬する
+1063,forgive,許す
+1064,convince,に納得させる
+1065,absorb,を吸い込む
+1066,depend,しだいである
+1067,independent,独立した
+1068,expensive,高価な
+1069,joke,冗談
+1070,mystery,なぞ
+1071,trick,いたずら
+1072,clue,手がかり
+1073,newspaper,新聞
+1074,envelope,封筒
+1075,label,ラベル
+1076,title,題名
+1077,topic,話題
+1078,information,情報
+1079,copy,複写・コピー
+1080,price,値段
+1081,value,価値
+1082,cost,費用
+1083,company,会社
+1084,sale,販売
+1085,trade,貿易
+1086,cheap,安い
+1087,belong,所属している
+1088,mix,を混ぜる
+1089,marry,結婚する
+1090,assist,補助する
+1091,exist,存在する
+1092,insist,主張する
+1093,nature,自然
+1094,grass,草
+1095,ocean,海
+1096,wave,波
+1097,coast,沿岸
+1098,cave,洞くつ
+1099,sand,砂
+1100,mud,どろ
+1101,birth,誕生
+1102,origin,起源
+1103,root,根
+1104,original,最初の
+1105,raw,生の
+1106,bare,裸の
+1107,wind,風
+1108,wind,を巻く
+1109,minute,分
+1110,minute,きわめて小さい
+1111,tear,涙
+1112,tear,を破る
+1113,close,を閉める
+1114,close,近い
+1115,escape,逃げる
+1116,hide,隠れる
+1117,protect,を守る
+1118,preserve,を保存する
+1119,maintain,を維持する
+1120,protest,抗議する
+1121,breathe,息をする
+1122,survive,生き残る
+1123,rescue,を救う
+1124,aid,援助
+1125,guard,警備員
+1126,whenever,するときはいつでも
+1127,wherever,するところならどこでも
+1128,however,しかしながら
+1129,center,中心
+1130,middle,中央
+1131,bottom,底
+1132,somewhere,どこかで
+1133,anywhere,どこかに
+1134,nowhere,どこにも ない
+1135,surprise,を驚かせる
+1136,embarrass,に恥ずかしい思いをさせる
+1137,wonder,不思議に思う
+1138,relax,くつろぐ
+1139,satisfy,を満足させる
+1140,cause,を引き起こす
+1141,affect,に影響する
+1142,react,反応する
+1143,lonely,孤独な
+1144,responsible,責任のある
+1145,thick,厚い
+1146,fat,太った
+1147,thin,薄い
+1148,height,高さ
+1149,weight,重さ
+1150,central,中心の
+1151,ahead,前方に
+1152,further,それ以上の
+1153,former,前の
+1154,latter,あとの
+1155,previous,前の
+1156,following,以下の
+1157,treat,を扱う
+1158,recognize,が わかる
+1159,confirm,を確認する
+1160,appreciate,に感謝する
+1161,accept,を受け入れる
+1162,allow,を許す
+1163,nation,国
+1164,state,州
+1165,community,地域社会
+1166,law,法律
+1167,policy,政策
+1168,police,警察
+1169,civilization,文明
+1170,system,制度
+1171,god,神
+1172,heaven,天国
+1173,sight,光景
+1174,moment,瞬間
+1175,race,競争
+1176,match,試合
+1177,quarrel,口論
+1178,enemy,敵
+1179,strength,力
+1180,creature,生き物
+1181,insect,昆虫
+1182,brain,脳
+1183,fur,毛皮
+1184,tail,しっぽ
+1185,pleasant,楽しい
+1186,delightful,ゆかいにさせる
+1187,comfortable,快適な
+1188,smart,頭のよい
+1189,polite,礼儀正しい
+1190,excellent,優れた
+1191,ideal,理想的な
+1192,fit,適した
+1193,proper,適切な
+1194,helpful,役に立つ
+1195,worth,の価値がある
+1196,stare,じっと見つめる
+1197,pronounce,を発音する
+1198,scream,悲鳴をあげる
+1199,elder,年上の
+1200,elderly,年配の
+1201,senior,年上の
+1202,junior,年下の
+1203,past,過去の
+1204,modern,現代の
+1205,latest,最新の
+1206,ability,能力
+1207,capacity,収容力
+1208,quality,質
+1209,technique,技術
+1210,craft,手芸・工芸
+1211,charm,魅力
+1212,confidence,信頼
+1213,heat,熱
+1214,fire,火
+1215,power,力
+1216,solar,太陽の
+1217,used,中古の
+1218,patient,がまん強い
+1219,shy,恥ずかしがりの
+1220,blind,目の見えない
+1221,funny,おかしい
+1222,serious,重大な
+1223,attend,に出席する
+1224,extend,伸びる
+1225,intend,するつもりである
+1226,pretend,するふりをする
+1227,motivate,に動機を与える
+1228,organize,を組織する
+1229,establish,を設立する
+1230,operate,を操作する
+1231,master,を習得する
+1232,serve,出す
+1233,aim,目的
+1234,capture,を捕まえる
+1235,recall,を思い出す
+1236,reflect,反射する
+1237,count,数える
+1238,mend,を修繕する
+1239,repair,を修理する
+1240,handle,を処理する
+1241,turn around,向きを変える
+1242,turn on,をつける
+1243,turn off,を消す
+1244,turn down,を下げる
+1245,turn out,であるとわかる
+1246,turn into,に変わる
+1247,talk to oneself,ひとり言を言う
+1248,say to oneself,と心の中で思う
+1249,say hello to,によろしくと言う
+1250,hear from,から便り をもらう
+1251,hear of,のことを耳にする
+1252,belong to,に所属している
+1253,change into,に変わる
+1254,change one’s mind,考えを変える
+1255,be going to do,するつもりである
+1256,have to do,しなければならない
+1257,had better do,したほうがよい
+1258,ought to do,すべきである
+1259,be supposed to do,することになっている
+1260,used to do,よく したものだ
+1261,be used to,に慣れている
+1262,be likely to do,しそうである
+1263,be willing to do,快く する
+1264,be ready to do,する用意ができている
+1265,call up,電話をかける
+1266,call at,に立ち寄る
+1267,call on,を訪問する
+1268,call for,を大声を出して求める
+1269,hurry up,急ぐ
+1270,fail to do,しそこなう
+1271,watch out,注意する
+1272,stand for,を表す
+1273,throw away,を捨てる
+1274,hold on,電話を切らないで待つ
+1275,hang up,電話を切る
+1276,call back,あとで電話をかけなおす
+1277,try on,を試着する
+1278,pass by,そばを通り過ぎる
+1279,fill in,を書き込む
+1280,shake hands with,と握手をする
+1281,leave alone,をそのままにしておく
+1282,tend to do,する傾向がある
+1283,all of a sudden,突然
+1284,at present,現在は
+1285,once upon a time,昔々
+1286,in the future,将来に
+1287,from time to time,ときどき
+1288,one after another,次々と
+1289,little by little,少しずつ
+1290,as a result,その結果
+1291,as for,について言えば
+1292,of course,もちろん
+1293,by the way,ところで
+1294,in fact,実際は
+1295,for example,たとえば
+1296,and so on,など
+1297,huge,巨大な
+1298,tiny,ごく小さな
+1299,major,大きな
+1300,minor,小さな
+1301,dry,乾いた
+1302,dirty,汚い
+1303,loud,大きい
+1304,tough,困難な
+1305,knock,ノックする
+1306,shut,を閉める
+1307,lift,を持ち上げる
+1308,press,押す
+1309,fold,を折りたたむ
+1310,stretch,を伸ばす
+1311,total,全体の
+1312,amount,総計
+1313,quantity,量
+1314,mass,大きなかたまり
+1315,pile,を積み重ねる
+1316,lack,不足
+1317,per,につき
+1318,leisure,余暇
+1319,fashion,流行
+1320,photo,写真
+1321,smoke,煙
+1322,gas,気体
+1323,ash,灰
+1324,dust,ほこり
+1325,sharp,鋭い
+1326,tight,きつい
+1327,obvious,明らかな
+1328,plain,明らかな
+1329,brief,短時間の
+1330,dull,にぶい
+1331,lazy,なまけ者の
+1332,silly,愚かな
+1333,foolish,愚かな
+1334,rude,失礼な
+1335,ugly,みにくい
+1336,pale,青白い
+1337,horrible,恐ろしい
+1338,awful,ひどい
+1339,agriculture,農業
+1340,soil,土
+1341,crop,農作物
+1342,grain,穀物
+1343,greenhouse,温室
+1344,occasion,時
+1345,opportunity,機会
+1346,circumstance,状況
+1347,situation,状況
+1348,represent,を表す
+1349,display,を示す
+1350,indicate,を 示す
+1351,prove,を証明する
+1352,reveal,を明らかにする
+1353,instant,即座の
+1354,primitive,原始 の
+1355,ancient,古代の
+1356,final,最終の
+1357,annual,毎年の
+1358,lately,近ごろ
+1359,recently,最近
+1360,immediately,ただちに
+1361,permanently,永久に
+1362,afterward,あとで
+1363,scold,しかる
+1364,punish,を罰する
+1365,criticize,を批判する
+1366,complain,不平・不満を言う
+1367,general,全体的な
+1368,normal,標準の
+1369,regular,規則的な
+1370,rare,まれな
+1371,local,地元の
+1372,global,世界的な
+1373,whether,かどうか
+1374,unless,でない限り
+1375,except,を除いて
+1376,besides,のほかに
+1377,beyond,の向こうに
+1378,within,以内に
+1379,throughout,のあいだずっと
+1380,despite,にもかかわらず
+1381,industry,産業
+1382,market,市場
+1383,goods,商品
+1384,service,奉仕
+1385,cooperation,協力
+1386,project,計画
+1387,benefit,利益
+1388,loss,損失
+1389,earn,をかせぐ
+1390,rent,を賃借りする
+1391,economic,経済の
+1392,clone,クローン
+1393,entertainment,娯楽
+1394,slave,奴隷
+1395,advance,進む
+1396,progress,前進する
+1397,approach,に近づく
+1398,behave,ふるまう
+1399,chase,追いかける
+1400,overcome,に打ち勝つ
+1401,bake,を焼く
+1402,boil,をわかす
+1403,melt,を溶かす
+1404,feed,に食物・えさを与える
+1405,flavor,風味
+1406,forbid,を禁止する
+1407,prohibit,を禁止する
+1408,ban,を禁止する
+1409,tool,道具
+1410,equipment,装備
+1411,instrument,器具
+1412,switch,スイッチ
+1413,furniture,家具
+1414,screen,画面
+1415,cell phone,携帯電話
+1416,beg,請う
+1417,remind,に思い出させる
+1418,encourage,を励ます
+1419,relieve,を安心させる
+1420,fascinate,を魅了する
+1421,force,に無理やり させる
+1422,confuse,を混乱させる
+1423,competition,競争
+1424,battle,戦闘
+1425,army,陸軍
+1426,soldier,兵士
+1427,victory,勝利
+1428,victim,犠牲者
+1429,defeat,敗北
+1430,tank,水槽
+1431,figure,姿
+1432,square,正方形
+1433,circle,円
+1434,level,水平な
+1435,sheet,枚
+1436,row,列
+1437,flow,流れる
+1438,float,浮かぶ
+1439,pour,を注ぐ
+1440,splash,をはねかける
+1441,expect,を予期する
+1442,concern,を心配させる
+1443,hesitate,ためらう
+1444,disappoint,を失望させる
+1445,regret,を後悔する
+1446,doubt,を疑う
+1447,admire,に感心する
+1448,pray,祈る
+1449,rely,をあてにする
+1450,resist,に抵抗する
+1451,refuse,拒む
+1452,avoid,を避ける
+1453,particular,特定の
+1454,participate,参加する
+1455,apartment,アパート
+1456,department,部
+1457,consist,から成る
+1458,remain,のままである
+1459,require,を必要とする
+1460,adopt,を採用する
+1461,select,を選ぶ
+1462,limit,を限定する
+1463,unite,を結合させる
+1464,connect,を接続する
+1465,politics,政治
+1466,democracy,民主主義
+1467,freedom,自由
+1468,election,選挙
+1469,official,公の
+1470,moral,道徳の
+1471,investigation,調査
+1472,data,資料
+1473,aspect,面
+1474,factor,要因
+1475,analyze,を分析する
+1476,focus,に焦点を合わせる
+1477,concentrate,に集中する
+1478,effect,影響
+1479,education,教育
+1480,experiment,実験
+1481,laboratory,研究室・研究所
+1482,principle,主義
+1483,theory,理論
+1484,scholarship,奨学金
+1485,truly,本当に
+1486,fully,十分に
+1487,slightly,わずかに
+1488,simply,単に
+1489,gradually,だんだんと
+1490,entire,全体の
+1491,extreme,極度の
+1492,likely,ありそうな
+1493,direction,方向
+1494,period,期間
+1495,sort,種類
+1496,variety,変化
+1497,grade,成績
+1498,rate,率
+1499,balance,つり合い
+1500,ingredient,成分
+1501,image,像
+1502,impression,印象
+1503,appearance,見かけ
+1504,attitude,態度
+1505,possibility,可能性
+1506,absolutely,完全に
+1507,adult,成人
+1508,kid,子ども
+1509,ancestor,先祖
+1510,crowd,群衆
+1511,owner,所有者
+1512,speaker,話す人
+1513,captain,キャプテン
+1514,author,著者
+1515,director,指導者
+1516,immigrant,移民
+1517,talent,才能
+1518,strict,厳しい
+1519,severe,厳しい
+1520,cruel,残酷な
+1521,position,位置
+1522,spot,場所
+1523,suburb,郊外
+1524,region,地方
+1525,base,土台
+1526,locate,場所・位置を示す
+1527,upstairs,階上へ
+1528,downtown,繁華街・商業地区へ
+1529,frame,骨組み
+1530,edge,ふち
+1531,surface,表面
+1532,section,区域
+1533,elsewhere,どこかほかのところで
+1534,everywhere,どこでも
+1535,command,命令する
+1536,obey,従う
+1537,gun,銃
+1538,weapon,武器
+1539,crime,罪
+1540,poison,毒
+1541,alarm,警報
+1542,shock,衝撃的なこと
+1543,thief,どろぼう
+1544,harm,害
+1545,risk,危険
+1546,steal,盗む
+1547,rob,を奪う
+1548,assure,を保証する
+1549,explode,爆発する
+1550,pollute,を汚染する
+1551,ruin,を台なしにする
+1552,crash,衝突する
+1553,arrest,逮捕する
+1554,grab,をつかむ
+1555,traffic,交通
+1556,transportation,輸送
+1557,avenue,大通り
+1558,path,小道
+1559,license,免許
+1560,signal,信号
+1561,fuel,燃料
+1562,baggage,手荷物
+1563,advise,忠告する
+1564,suggest,を提案する
+1565,recommend,を推薦する
+1566,reply,返事をする
+1567,describe,を描写する
+1568,announce,を発表する
+1569,publish,出版する
+1570,debate,討論
+1571,statement,声明
+1572,association,協会
+1573,committee,委員会
+1574,independence,独立
+1575,duty,義務
+1576,structure,構造
+1577,the day before yesterday,おととい
+1578,the day after tomorrow,あさって
+1579,the other day,先日
+1580,these days,このごろ
+1581,in those days,当時は
+1582,at that time,そのころは
+1583,each time,するたびに
+1584,all the time,いつも
+1585,day after day,毎日毎日
+1586,day by day,日ごとに
+1587,every other day,日おきに
+1588,over and over again,何度も何度も
+1589,as usual,いつものように
+1590,by chance,偶然に
+1591,pull out,を引き抜く
+1592,point out,を指摘する
+1593,wear out,をすり減らす
+1594,see off,を見送る
+1595,pay attention to,に注意を払う
+1596,pay a visit to,を訪れる
+1597,in front of,の前に
+1598,in back of,の後ろに
+1599,in the middle of,の真ん中に
+1600,at the top of,の頂上に
+1601,at the bottom of,の底に
+1602,next to,のとなりに
+1603,across from,の向かいに
+1604,out of,の中から
+1605,as as one can /as as possible,できるだけ
+1606,as well,同様に
+1607,the same as,と同じ
+1608,such as,のような
+1609,such as to do,するような
+1610,be about to do,しようとしている
+1611,in order to do,するために
+1612,too to do,するには すぎる
+1613,enough to do,するのに十分
+1614,go along,をまっすぐ行く
+1615,catch up,追いつく
+1616,feel sorry for,のことを気の毒に思う
+1617,remind of A,Aに〜を思い出させる
+1618,owe to,のおかげである
+1619,no longer,もはや でない
+1620,not at all,少しも ない
+1621,not always,いつも とは限らない
+1622,anything but,以外なら何でもする
+1623,nothing but,ただ だけ
+1624,far from,からはほど遠い
+1625,by no means,決して ない
+1626,get rid of,を取り除く
+1627,look into,を調査する
+1628,pick up,を拾いあげる
+1629,set up,を立てる
+1630,take up,を始める
+1631,turn up,現れる
+1632,take for granted,を当然のことと思う
+1633,powerful,強力な
+1634,capable,有能な
+1635,clever,りこうな
+1636,wealthy,裕福な
+1637,positive,積極的な
+1638,efficient,有能な
+1639,suitable,適した
+1640,essential,不可欠の
+1641,pure,純粋な
+1642,skillful,熟練した
+1643,superior,優れている
+1644,concept,概念
+1645,process,過程
+1646,definition,定義
+1647,research,研究する
+1648,observe,観察する
+1649,measure,測る
+1650,estimate,見積もる
+1651,memorize,を記憶する
+1652,refer,に言及する
+1653,arrange,を整える
+1654,adjust,を調節する
+1655,imitate,をまねる
+1656,explore,を探検する
+1657,translate,翻訳する
+1658,comprehend,を理解する
+1659,consult,に相談する
+1660,manage,を管理する
+1661,rough,でこぼこした
+1662,flat,平らな
+1663,smooth,なめらかな
+1664,broad,広い
+1665,narrow,狭い
+1666,specific,明確な
+1667,fortunately,幸運にも
+1668,frankly,率直に
+1669,anyway,とにかく
+1670,therefore,それゆえに
+1671,eventually,最後には
+1672,furthermore,さらに
+1673,moreover,その上
+1674,thus,したがって
+1675,survey,調査
+1676,object,物体
+1677,mission,使命
+1678,frequency,しばしば起こること
+1679,average,平均
+1680,standard,基準
+1681,relation,関係
+1682,combination,組み合わせ
+1683,evidence,証拠
+1684,demonstrate,を実演する
+1685,conclusion,結論
+1686,phenomenon,現象
+1687,trend,傾向
+1688,predict,を予測する
+1689,crowded,混みあった
+1690,rapid,速い
+1691,complex,複雑な
+1692,alike,似ている
+1693,artificial,人工の
+1694,electric,電気の
+1695,humid,湿気の多い
+1696,chemical,化学的な
+1697,admit,を許可する
+1698,permit,を許す
+1699,consider,よく考える
+1700,regard,を とみなす
+1701,identify,が何 だかわかる
+1702,determine,を決心する
+1703,inform,に知らせる
+1704,mention,について言及する
+1705,stress,を強調する
+1706,argue,議論する
+1707,chat,雑談する
+1708,broadcast,放送する
+1709,review,を再検討する
+1710,gain,を獲得する
+1711,provide,を供給する
+1712,supply,を供給する
+1713,contribute,貢献する
+1714,obtain,を手に入れる
+1715,contain,を含む
+1716,sustainable,持続可能な
+1717,scared,おびえた
+1718,scary,恐ろしい
+1719,ashamed,恥じて
+1720,miserable,みじめな
+1721,guilty,有罪の
+1722,violent,激しい
+1723,evil,邪悪な
+1724,disturb,を妨害する
+1725,bother,を悩ませる
+1726,upset,を動揺させる
+1727,deny,を否定する
+1728,blame,を非難する
+1729,ignore,を無視する
+1730,reject,を拒絶する
+1731,content,満足して
+1732,grateful,感謝している
+1733,curious,好奇心が強い
+1734,anxious,を心配している
+1735,stomach,胃
+1736,sickness,病気
+1737,illness,病気
+1738,fever,熱
+1739,cough,せき
+1740,principal,校長
+1741,professor,教授
+1742,pupil,生徒
+1743,instruction,指示
+1744,exercise,運動
+1745,citizen,国民
+1746,foreigner,外国人
+1747,refugee,難民
+1748,expert,専門家
+1749,assistant,助手
+1750,keeper,番人
+1751,teenager,十代の人
+1752,literature,文学
+1753,novel,小説
+1754,passage,一節
+1755,series,シリーズ
+1756,edition,版
+1757,classical,古典の
+1758,fantastic,すばらしい
+1759,attempt,試み
+1760,affair,業務
+1761,request,要請
+1762,appointment,約束
+1763,method,方法
+1764,means,手段
+1765,manner,やり方
+1766,attract,を引きつける
+1767,dislike,を嫌う
+1768,envy,をうらやむ
+1769,apologize,あやまる
+1770,whoever,する人はだれでも
+1771,whichever,するものはどちらでも
+1772,whatever,するものは何 でも
+1773,seldom,めったにない
+1774,scarcely,ほとんどない
+1775,occasionally,ときおり
+1776,constant,一定の
+1777,current,今の
+1778,decade,0年
+1779,material,材料
+1780,metal,金属
+1781,iron,鉄
+1782,coal,石炭
+1783,plate,板
+1784,resource,資源
+1785,steel,鋼鉄
+1786,oxygen,酸素
+1787,religion,宗教
+1788,soul,魂
+1789,miracle,奇跡
+1790,shrine,神社
+1791,temple,寺
+1792,demand,を要求する
+1793,claim,を要求する
+1794,desire,を 望む
+1795,seek,捜す
+1796,persuade,を説得する
+1797,inspire,を奮起させる
+1798,oppose,に反対する
+1799,suppose,と思う
+1800,propose,を提案する
+1801,decrease,減る
+1802,remove,を取り除く
+1803,delay,を遅らせる
+1804,restrict,を制限する
+1805,occur,起こる
+1806,emerge,現れる
+1807,involve,を巻き込む
+1808,achieve,を達成する
+1809,settle,定住する
+1810,replace,に取って代わる
+1811,retire,引退する
+1812,apply,申し込む
+1813,reserve,を予約する
+1814,cancel,を取り消す
+1815,direct,まっすぐな
+1816,distant,遠い
+1817,opposite,向かい側の
+1818,upper,上部の
+1819,vital,不可欠な
+1820,cell,細胞
+1821,gene,遺伝子
+1822,donor,ドナー
+1823,species,種
+1824,seed,種
+1825,grave,墓
+1826,welfare,福祉
+1827,wheelchair,車いす
+1828,volunteer,ボランティア
+1829,product,製品
+1830,customer,客
+1831,consumer,消費者
+1832,manufacture,を製造する
+1833,import,を輸入する
+1834,export,を輸出する
+1835,advertise,宣伝する
+1836,promote,を促進する
+1837,deal,を扱う
+1838,available,利用できる
+1839,commercial,商業の
+1840,fair,見本市
+1841,lecture,講義
+1842,client,依頼人
+1843,lock,にかぎをかける
+1844,attach,を取り付ける
+1845,fasten,を固定する
+1846,knit,を編む
+1847,polish,を磨く
+1848,surround,を囲む
+1849,bow,おじぎをする
+1850,vote,投票する
+1851,hike,ハイキングをする
+1852,occupation,職業
+1853,career,経歴
+1854,labor,労働
+1855,employ,を雇う
+1856,wage,賃金
+1857,climate,気候
+1858,fog,霧
+1859,shower,にわか雨
+1860,flood,洪水
+1861,volcano,火山
+1862,disaster,災害
+1863,telescope,望遠鏡
+1864,advantage,利点
+1865,permission,許可
+1866,wealth,富
+1867,treasure,宝物
+1868,pride,誇り
+1869,honor,名誉
+1870,award,賞
+1871,reward,ほうび
+1872,cash,現金
+1873,fare,運賃
+1874,tax,税金
+1875,bill,請求書
+1876,account,勘定
+1877,sum,合計
+1878,income,収入
+1879,profit,利益
+1880,loan,貸し付け
+1881,charge,を請求する
+1882,owe,を借りている
+1883,afford,余裕がある
+1884,due,払われるべき
+1885,challenge,に挑戦する
+1886,warn,警告する
+1887,rush,突進する
+1888,strike,打つ
+1889,struggle,もがく
+1890,conflict,紛争
+1891,nuclear,原子力の
+1892,emergency,緊急時
+1893,network,ネットワーク
+1894,digital,デジタル の
+1895,device,機器
+1896,ecology,生態
+1897,alternative,代替の
+1898,gender,性
+1899,destination,目的地
+1900,via,経由で
+1901,portable,持ち運び可能な
+1902,convey,を輸送する
+1903,priority,優先
+1904,lane,車線
+1905,crew,乗組員
+1906,declare,を申告する
+1907,wander,歩き回る
+1908,hop,跳び回る
+1909,encounter,と出会う
+1910,historical,歴史に関する
+1911,heritage,遺産
+1912,legend,伝説
+1913,out of date,時代遅れの
+1914,out of order,故障して
+1915,at work,仕事中で
+1916,at a loss,途方にくれて
+1917,in a hurry,急いで
+1918,in public,人前で
+1919,in common,共通に
+1920,in contrast,対照的に
+1921,in place of,の代わりに
+1922,in turn,順番に
+1923,happen to do,たまたま する
+1924,to tell the truth,実を言うと
+1925,so to speak,いわば
+1926,needless to say,言うまでもなく
+1927,at least,少なくとも
+1928,more or less,多かれ少なかれ
+1929,as a rule,一般に
+1930,after all,結局
+1931,in other words,言い換えれば
+1932,on the other hand,他方では
+1933,as a matter of fact,実のところ
+1934,in a way,ある意味・点では
+1935,in one’s opinion,の意見では
+1936,by oneself,ひとりで
+1937,for oneself,独力で
+1938,on one’s own,ひとりで
+1939,on purpose,わざと
+1940,on earth,いったい全体
+1941,look forward to -ing,するのを楽しみに待つ
+1942,feel like -ing,したい気分だ
+1943,cannot help -ing,せずにはいられない
+1944,because of,のために
+1945,thanks to,のおかげで
+1946,due to,のために
+1947,according to,によると
+1948,in relation to,に関して
+1949,in addition to,に加えて
+1950,instead of,の代わりに
+1951,in spite of,にもかかわらず
+1952,except for,を除いては
+1953,but for,もし がなければ
+1954,along with,といっしょに
+1955,for a moment,ちょっとのあいだ
+1956,for a while,しばらくのあいだ
+1957,for a long time,長いあいだ
+1958,all day,一日中
+1959,all the way,ずっと
+1960,as soon as,するとすぐに
+1961,as far as,する限り
+1962,as long as,しているあいだは
+1963,by the time,する時までに
+1964,as if,まるで であるかのように
+1965,even if,たとえ でも
+1966,in case,の場合は
+1967,so that may,が するように
+1968,not only A but(also) B,AだけでなくBも
