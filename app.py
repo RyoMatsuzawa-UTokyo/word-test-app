@@ -242,7 +242,7 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
                 
                 # Q番号 (ゴシック)
                 c.setFont(JP_FONT_GOTHIC, 11)
-                id_str = f"Q{item['id']}."
+                id_str = f"{item['id']}."
                 c.drawString(x_base + 3*mm, line_1_y, id_str)
                 id_width = c.stringWidth(id_str, JP_FONT_GOTHIC, 11)
                 
@@ -263,7 +263,7 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
                 c.setFillColorRGB(0, 0, 0)
                 
                 def draw_choice(idx, txt, cx, cy):
-                    label = f"({idx}) {txt}"
+                    label = f"{idx} {txt}"
                     if len(label) > 18: label = label[:17] + ".."
                     c.drawString(cx, cy, label)
 
@@ -335,7 +335,7 @@ else:
         mode = st.sidebar.radio("出力モード", ["問題用紙", "模範解答"], horizontal=True)
         
         # --- メイン処理 ---
-        if st.sidebar.button("テスト作成実行", type="primary"):
+        if st.sidebar.button("問題作成", type="primary"):
             target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
             
             if len(target_df) > 0 and start_id <= end_id:
