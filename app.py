@@ -97,9 +97,9 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
         pos_groups[guess_pos(m)].append(m)
 
     # レイアウト設定（幅広調整）
-    margin_x = 10 * mm  # 左右余白を減らして描画領域を拡大 (15 -> 10)
+    margin_x = 6 * mm  # 左右余白を減らして描画領域を拡大 (15 -> 10)
     margin_y = 15 * mm
-    col_gap = 8 * mm    # 中央の隙間も少し詰める (12 -> 8)
+    col_gap = 6 * mm    # 中央の隙間も少し詰める (12 -> 8)
     cols = 2
     
     # 行数設定
