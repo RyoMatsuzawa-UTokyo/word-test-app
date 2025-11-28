@@ -6,10 +6,11 @@ from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 import io
+import base64
 import glob
 import os
 import random
-from streamlit_pdf_viewer import pdf_viewer  # 追加したライブラリ
+import streamlit.components.v1 as components # 埋め込み用のコンポーネント
 
 # --- 設定 ---
 st.set_page_config(page_title="単語テスト作成機", layout="wide")
@@ -188,21 +189,6 @@ def create_pdf(target_data, all_data_df, title, score_str, test_type, include_an
     buffer.seek(0)
     return buffer
 
-# --- プレビュー表示関数 (ここを変更しました) ---
-def display_pdf(pdf_buffer):
-    # 念のためダウンロードボタンは残しておく（便利なので）
-    st.download_button(
-        label="📄 PDFをダウンロード",
-        data=pdf_buffer,
-        file_name="word_test.pdf",
-        mime="application/pdf"
-    )
-    
-    # 専用ライブラリでプレビューを表示
-    # ブラウザのブロック機能に引っかからずに表示できます
-    pdf_bytes = pdf_buffer.getvalue()
-    pdf_viewer(input=pdf_bytes, width=700)
-
 # --- アプリ画面 ---
 st.title("単語テスト作成アプリ")
 
@@ -272,6 +258,17 @@ else:
                 )
                 
                 st.success(f"作成完了！")
-                display_pdf(pdf_bytes)
+                
+                # --- PDF表示処理 (ここを変更) ---
+                # ダウンロードボタンは削除し、プレビューのみを表示
+                base64_pdf = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
+                
+                # <embed>タグを使ってブラウザのネイティブPDFビューワーを呼び出す
+                # これにより、PDFの上に最初から「印刷ボタン」「ダウンロードボタン」が表示されます
+                pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="100%" height="1000" type="application/pdf" />'
+                
+                # components.html を使うことで、iframe内で安全に表示させる（ブロック回避）
+                components.html(pdf_display, height=1000)
+                
             else:
                 st.error("指定された範囲にデータがないか、範囲設定が間違っています。")
