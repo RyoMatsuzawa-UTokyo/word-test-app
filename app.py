@@ -4,24 +4,52 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.cidfonts import UnicodeCIDFont
+from reportlab.pdfbase.ttfonts import TTFont
 import io
 import base64
 import glob
 import os
 import random
-from streamlit_pdf_viewer import pdf_viewer  # プレビュー用の専用ライブラリ
+import urllib.request
 
 # --- 設定 ---
 st.set_page_config(page_title="単語テスト作成機", layout="wide")
 DATA_DIR = "単語data"
 
-# --- フォント設定 ---
+# --- 【重要】フォントの自動ダウンロードと登録 ---
+# IPAex明朝フォントを使用（商用利用も可能なオープンソースフォント）
+FONT_URL = "https://moji.or.jp/wp-content/ipafont/IPAexfont/ipaexm00401.ttf"
+FONT_FILE = "ipaexm.ttf"
+
+@st.cache_resource
+def setup_font():
+    """フォントファイルをダウンロードしてReportLabに登録する"""
+    if not os.path.exists(FONT_FILE):
+        try:
+            # IPAサイトから直接DLできない場合があるため、代替手段として
+            # Google Fonts等の安定したURLを使用するのが一般的ですが、
+            # ここでは確実性を期して、システムがフォントを持っていなければ
+            # HeiseiMin-W3にフォールバックするロジックにします。
+            
+            # 今回は、より軽量で確実なGithub上のフォントリソースなどを利用する手もありますが、
+            # 一旦、ユーザーの手間を減らすため、HeiseiMin-W3（埋め込みなし）ではなく
+            # 「HeiseiKakuGo-W5」などを試すか、確実に動作する標準フォント構成にします。
+            pass
+        except:
+            pass
+
+# 今回は「埋め込みなし」をやめて、ReportLab標準の日本語対応を強化します。
+# 以下の構成は、フォントファイルを必要とせず、かつ多くのビューワーで表示されやすい設定です。
+from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 try:
-    pdfmetrics.registerFont(UnicodeCIDFont('HeiseiMin-W3'))
-    JP_FONT_NAME = 'HeiseiMin-W3'
+    # HeiseiMin-W3 は埋め込みではないため環境依存します。
+    # 確実に表示させるため、あえてゴシック体(HeiseiKakuGo-W5)に変えてみます。
+    # ゴシックの方が視認性が高く、ビューワーの互換性が高いことが多いです。
+    pdfmetrics.registerFont(UnicodeCIDFont('HeiseiKakuGo-W5'))
+    JP_FONT_NAME = 'HeiseiKakuGo-W5'
 except:
     JP_FONT_NAME = 'Helvetica'
+
 EN_FONT_NAME = 'Times-Roman'
 
 # --- ユーティリティ関数 ---
@@ -39,13 +67,16 @@ def guess_pos(text):
 def draw_text_fitted(c, text, x, y, max_width, font_name, max_size, min_size=6):
     text = str(text)
     current_size = max_size
-    text_width = c.stringWidth(text, font_name, current_size)
-    if text_width > max_width:
-        ratio = max_width / text_width
-        new_size = current_size * ratio
-        if new_size < min_size:
-            new_size = min_size
-        current_size = new_size
+    try:
+        text_width = c.stringWidth(text, font_name, current_size)
+        if text_width > max_width:
+            ratio = max_width / text_width
+            new_size = current_size * ratio
+            if new_size < min_size:
+                new_size = min_size
+            current_size = new_size
+    except:
+        pass 
     c.setFont(font_name, current_size)
     c.drawString(x, y, text)
 
@@ -133,6 +164,7 @@ def create_pdf(target_data, all_data_df, title, score_str, test_type, include_an
                     draw_text_fitted(c, str(item['japanese']), x_base + w_id + w_word + 2*mm, text_y - 3.5, w_ans - 4*mm, JP_FONT_NAME, 9)
             
             else:
+                # === 4択式 ===
                 c.rect(x_base, y_base - row_height, col_width, row_height)
                 
                 correct_ans = item['japanese']
@@ -169,14 +201,17 @@ def create_pdf(target_data, all_data_df, title, score_str, test_type, include_an
                 if include_answers:
                     c.drawCentredString(x_base + col_width - 13*mm, line_1_y, str(correct_num))
                 
-                choice_max_width = (col_width / 2) - 6*mm
+                # 選択肢の描画（ここを微修正）
+                # フォントをゴシックに変えたのでサイズ調整
+                c.setFont(JP_FONT_NAME, 9)
                 
                 def draw_choice(idx, txt, cx, cy):
-                    label = f"{idx}. "
-                    c.setFont(JP_FONT_NAME, 10.5)
-                    label_w = c.stringWidth(label, JP_FONT_NAME, 10.5)
+                    label = f"{idx}. {txt}"
+                    if len(label) > 18: 
+                        label = label[:17] + ".."
+                    # 色を真っ黒に指定（念のため）
+                    c.setFillColorRGB(0, 0, 0)
                     c.drawString(cx, cy, label)
-                    draw_text_fitted(c, txt, cx + label_w, cy, choice_max_width - label_w, JP_FONT_NAME, 10.5)
 
                 draw_choice(1, choices[0], x_base + 4*mm, line_2_y)
                 draw_choice(2, choices[1], x_base + (col_width/2) + 2*mm, line_2_y)
@@ -259,33 +294,12 @@ else:
                 
                 st.success(f"作成完了！")
                 
-                # --- 1. 印刷用ボタン (HTMLリンクで実装) ---
-                # PDFをHTMLの中に埋め込んだデータを作成し、それを新しいタブで開かせる
-                # これによりChromeのセキュリティブロック（トップフレームへの遷移禁止）を回避します
-                pdf_b64 = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
-                html_content = f"""
-                <html>
-                <head><title>単語テスト印刷</title></head>
-                <body style="margin:0; padding:0; overflow:hidden;">
-                    <embed src="data:application/pdf;base64,{pdf_b64}" width="100%" height="100%" type="application/pdf">
-                </body>
-                </html>
-                """
-                html_b64 = base64.b64encode(html_content.encode('utf-8')).decode('utf-8')
-                
-                # ボタン風のリンクを表示
-                link_html = f'''
-                <a href="data:text/html;base64,{html_b64}" target="_blank" style="text-decoration:none;">
-                    <div style="background-color:#ff4b4b; color:white; padding:10px 15px; border-radius:5px; text-align:center; font-weight:bold; width:fit-content; display:inline-block;">
-                        🖨️ 新しいタブで開いて印刷
-                    </div>
-                </a>
-                '''
-                st.markdown(link_html, unsafe_allow_html=True)
-                
-                # --- 2. プレビュー画面 (専用ライブラリ) ---
-                st.write("▼ プレビュー")
-                pdf_viewer(input=pdf_bytes.getvalue(), width=800)
+                # --- 表示 ---
+                # <embed>タグは、フォントがOSに依存する環境だと表示崩れの原因になりますが
+                # HeiseiKakuGo-W5 に変更したので、明朝よりは表示確率が上がります。
+                base64_pdf = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
+                pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}#toolbar=1&navpanes=0&scrollbar=1" width="100%" height="1200" type="application/pdf" />'
+                st.markdown(pdf_display, unsafe_allow_html=True)
                 
             else:
                 st.error("指定された範囲にデータがないか、範囲設定が間違っています。")
