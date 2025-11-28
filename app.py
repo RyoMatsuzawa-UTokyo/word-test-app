@@ -6,10 +6,10 @@ from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 import io
+import base64
 import glob
 import os
 import random
-from streamlit_pdf_viewer import pdf_viewer  # 専用ライブラリ
 
 # --- 設定 ---
 st.set_page_config(page_title="単語テスト作成機", layout="wide")
@@ -188,30 +188,18 @@ def create_pdf(target_data, all_data_df, title, score_str, test_type, include_an
     buffer.seek(0)
     return buffer
 
-# --- 画面表示部分の変更 ---
-def display_pdf_viewer(pdf_buffer):
-    """
-    専用ライブラリを使ってPDFを表示する。
-    これにより、ブラウザのセキュリティブロックを回避して確実に表示できる。
-    """
-    # PDFのバイナリデータを取得
-    binary_data = pdf_buffer.getvalue()
+# --- プレビュー表示関数 (ここを修正) ---
+def display_pdf(pdf_buffer):
+    base64_pdf = base64.b64encode(pdf_buffer.getvalue()).decode('utf-8')
     
-    # 1. 印刷用ボタン
-    st.download_button(
-        label="🖨️ PDFを開いて印刷する",
-        data=pdf_buffer,
-        file_name="word_test.pdf",
-        mime="application/pdf",
-        type="primary",
-        help="ここを押すとPDFファイルが開きます。そこからブラウザの機能で印刷してください。"
-    )
-    
-    st.write("▼ プレビュー画面")
-    
-    # 2. 強制プレビュー表示 (streamlit-pdf-viewerを使用)
-    # width=700 くらいが見やすいです
-    pdf_viewer(input=binary_data, width=800)
+    # <object>タグを使用。これが最もChromeでブロックされにくい方法です。
+    # 画面いっぱいにPDFビューワーを表示します。
+    pdf_display = f'''
+    <object data="data:application/pdf;base64,{base64_pdf}" type="application/pdf" width="100%" height="1000px">
+        <p>ブラウザのPDFプレビューが利用できません。</p>
+    </object>
+    '''
+    st.markdown(pdf_display, unsafe_allow_html=True)
 
 # --- アプリ画面 ---
 st.title("単語テスト作成アプリ")
@@ -283,8 +271,8 @@ else:
                 
                 st.success(f"作成完了！")
                 
-                # 専用ビューワーで表示
-                display_pdf_viewer(pdf_bytes)
+                # PDFを表示
+                display_pdf(pdf_bytes)
                 
             else:
                 st.error("指定された範囲にデータがないか、範囲設定が間違っています。")
