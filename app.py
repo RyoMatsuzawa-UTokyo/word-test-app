@@ -6,11 +6,10 @@ from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 import io
-import base64
 import glob
 import os
 import random
-import streamlit.components.v1 as components # 埋め込み用のコンポーネント
+from streamlit_pdf_viewer import pdf_viewer  # 専用ライブラリ
 
 # --- 設定 ---
 st.set_page_config(page_title="単語テスト作成機", layout="wide")
@@ -156,119 +155,4 @@ def create_pdf(target_data, all_data_df, title, score_str, test_type, include_an
                 line_2_y = y_base - 32
                 line_3_y = y_base - 48
                 
-                c.setFont(EN_FONT_NAME, 12)
-                id_width = c.stringWidth(f"{item['id']}. ", EN_FONT_NAME, 12)
-                c.drawString(x_base + 2*mm, line_1_y, f"{item['id']}. ")
-                
-                max_word_width = col_width - 25*mm - id_width 
-                draw_text_fitted(c, str(item['english']), x_base + 2*mm + id_width, line_1_y, max_word_width, EN_FONT_NAME, 12)
-                
-                c.setFont(EN_FONT_NAME, 12)
-                c.drawString(x_base + col_width - 20*mm, line_1_y, "(             )")
-                
-                if include_answers:
-                    c.drawCentredString(x_base + col_width - 13*mm, line_1_y, str(correct_num))
-                
-                choice_max_width = (col_width / 2) - 6*mm
-                
-                def draw_choice(idx, txt, cx, cy):
-                    label = f"{idx}. "
-                    c.setFont(JP_FONT_NAME, 10.5)
-                    label_w = c.stringWidth(label, JP_FONT_NAME, 10.5)
-                    c.drawString(cx, cy, label)
-                    draw_text_fitted(c, txt, cx + label_w, cy, choice_max_width - label_w, JP_FONT_NAME, 10.5)
-
-                draw_choice(1, choices[0], x_base + 4*mm, line_2_y)
-                draw_choice(2, choices[1], x_base + (col_width/2) + 2*mm, line_2_y)
-                draw_choice(3, choices[2], x_base + 4*mm, line_3_y)
-                draw_choice(4, choices[3], x_base + (col_width/2) + 2*mm, line_3_y)
-
-        c.showPage()
-
-    c.save()
-    buffer.seek(0)
-    return buffer
-
-# --- アプリ画面 ---
-st.title("単語テスト作成アプリ")
-
-csv_files_paths = get_csv_files()
-
-if not csv_files_paths:
-    st.warning(f"「{DATA_DIR}」フォルダ内にCSVファイルが見つかりません。")
-else:
-    st.sidebar.header("1. 単語帳の選択")
-    files_map = {os.path.basename(p): p for p in csv_files_paths}
-    selected_filename = st.sidebar.selectbox("使用するファイルを選択", list(files_map.keys()))
-    selected_filepath = files_map[selected_filename]
-    
-    df = load_data(selected_filepath)
-
-    if df is not None:
-        st.sidebar.markdown("---")
-        st.sidebar.header("2. テスト設定")
-        
-        test_type = st.sidebar.selectbox("出題形式", ["記述式", "4択式"])
-
-        min_id = int(df['id'].min())
-        max_id = int(df['id'].max())
-        st.sidebar.write(f"収録範囲: ID {min_id} 〜 {max_id}")
-        
-        col1, col2 = st.sidebar.columns(2)
-        with col1:
-            start_id = st.number_input("開始番号", min_value=min_id, max_value=max_id, value=min_id)
-        with col2:
-            end_id_default = min(min_id+49, max_id)
-            end_id = st.number_input("終了番号", min_value=min_id, max_value=max_id, value=end_id_default)
-        
-        if start_id > end_id:
-            st.sidebar.error("開始番号は終了番号より小さくしてください。")
-
-        default_title_base = os.path.splitext(selected_filename)[0]
-        title_input = st.sidebar.text_input("タイトル", value=f"{default_title_base} No.{start_id}-{end_id}")
-        score_input = st.sidebar.text_input("点数欄", value="点数:        /        ")
-
-        st.sidebar.markdown("---")
-        st.sidebar.header("3. 出題順序")
-        order_mode = st.sidebar.radio("並び順を選択", ["ID順 (順番通り)", "ランダム"], horizontal=True)
-        
-        st.sidebar.markdown("---")
-        mode = st.sidebar.radio("表示モード", ["問題用紙", "模範解答"], horizontal=True)
-        
-        if st.sidebar.button("プレビューを表示", type="primary"):
-            target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
-            
-            if len(target_df) > 0 and start_id <= end_id:
-                if order_mode == "ランダム":
-                    target_df = target_df.sample(frac=1, random_state=None)
-                else:
-                    target_df = target_df.sort_values('id')
-
-                include_answers = (mode == "模範解答")
-                title_text = title_input + ("【解答】" if include_answers else "")
-                all_data_df = df
-
-                pdf_bytes = create_pdf(
-                    target_df.to_dict('records'), 
-                    all_data_df,
-                    title_text, 
-                    score_input,
-                    test_type, 
-                    include_answers=include_answers
-                )
-                
-                st.success(f"作成完了！")
-                
-                # --- PDF表示処理 (ここを変更) ---
-                # ダウンロードボタンは削除し、プレビューのみを表示
-                base64_pdf = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
-                
-                # <embed>タグを使ってブラウザのネイティブPDFビューワーを呼び出す
-                # これにより、PDFの上に最初から「印刷ボタン」「ダウンロードボタン」が表示されます
-                pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="100%" height="1000" type="application/pdf" />'
-                
-                # components.html を使うことで、iframe内で安全に表示させる（ブロック回避）
-                components.html(pdf_display, height=1000)
-                
-            else:
-                st.error("指定された範囲にデータがないか、範囲設定が間違っています。")
+                c.setFont(EN_FONT_NAME, 12
