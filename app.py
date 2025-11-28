@@ -10,16 +10,16 @@ import base64
 import glob
 import os
 import random
+from streamlit_pdf_viewer import pdf_viewer  # プレビュー用の専用ライブラリ
 
 # --- 設定 ---
 st.set_page_config(page_title="単語テスト作成機", layout="wide")
 DATA_DIR = "単語data"
 
 # --- フォント設定 ---
-# 視認性が高く表示崩れしにくいゴシック体を使用
 try:
-    pdfmetrics.registerFont(UnicodeCIDFont('HeiseiKakuGo-W5'))
-    JP_FONT_NAME = 'HeiseiKakuGo-W5'
+    pdfmetrics.registerFont(UnicodeCIDFont('HeiseiMin-W3'))
+    JP_FONT_NAME = 'HeiseiMin-W3'
 except:
     JP_FONT_NAME = 'Helvetica'
 EN_FONT_NAME = 'Times-Roman'
@@ -39,16 +39,13 @@ def guess_pos(text):
 def draw_text_fitted(c, text, x, y, max_width, font_name, max_size, min_size=6):
     text = str(text)
     current_size = max_size
-    try:
-        text_width = c.stringWidth(text, font_name, current_size)
-        if text_width > max_width:
-            ratio = max_width / text_width
-            new_size = current_size * ratio
-            if new_size < min_size:
-                new_size = min_size
-            current_size = new_size
-    except:
-        pass
+    text_width = c.stringWidth(text, font_name, current_size)
+    if text_width > max_width:
+        ratio = max_width / text_width
+        new_size = current_size * ratio
+        if new_size < min_size:
+            new_size = min_size
+        current_size = new_size
     c.setFont(font_name, current_size)
     c.drawString(x, y, text)
 
@@ -172,13 +169,14 @@ def create_pdf(target_data, all_data_df, title, score_str, test_type, include_an
                 if include_answers:
                     c.drawCentredString(x_base + col_width - 13*mm, line_1_y, str(correct_num))
                 
-                c.setFont(JP_FONT_NAME, 9)
-                c.setFillColorRGB(0, 0, 0)
+                choice_max_width = (col_width / 2) - 6*mm
                 
                 def draw_choice(idx, txt, cx, cy):
-                    label = f"{idx}. {txt}"
-                    if len(label) > 18: label = label[:17] + ".."
+                    label = f"{idx}. "
+                    c.setFont(JP_FONT_NAME, 10.5)
+                    label_w = c.stringWidth(label, JP_FONT_NAME, 10.5)
                     c.drawString(cx, cy, label)
+                    draw_text_fitted(c, txt, cx + label_w, cy, choice_max_width - label_w, JP_FONT_NAME, 10.5)
 
                 draw_choice(1, choices[0], x_base + 4*mm, line_2_y)
                 draw_choice(2, choices[1], x_base + (col_width/2) + 2*mm, line_2_y)
@@ -237,8 +235,7 @@ else:
         st.sidebar.markdown("---")
         mode = st.sidebar.radio("表示モード", ["問題用紙", "模範解答"], horizontal=True)
         
-        # --- 実行ボタン ---
-        if st.sidebar.button("テストPDFを作成", type="primary"):
+        if st.sidebar.button("プレビューを表示", type="primary"):
             target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
             
             if len(target_df) > 0 and start_id <= end_id:
@@ -249,29 +246,46 @@ else:
 
                 include_answers = (mode == "模範解答")
                 title_text = title_input + ("【解答】" if include_answers else "")
-                
-                # PDF作成
+                all_data_df = df
+
                 pdf_bytes = create_pdf(
                     target_df.to_dict('records'), 
-                    df,
+                    all_data_df,
                     title_text, 
                     score_input,
                     test_type, 
                     include_answers=include_answers
                 )
                 
-                st.success("作成完了！下のボタンを押すと新しいタブでPDFが開きます。")
+                st.success(f"作成完了！")
                 
-                # --- PDFを新しいタブで開くリンクを生成 ---
-                # PDFをBase64文字列に変換
+                # --- 1. 印刷用ボタン (HTMLリンクで実装) ---
+                # PDFをHTMLの中に埋め込んだデータを作成し、それを新しいタブで開かせる
+                # これによりChromeのセキュリティブロック（トップフレームへの遷移禁止）を回避します
                 pdf_b64 = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
+                html_content = f"""
+                <html>
+                <head><title>単語テスト印刷</title></head>
+                <body style="margin:0; padding:0; overflow:hidden;">
+                    <embed src="data:application/pdf;base64,{pdf_b64}" width="100%" height="100%" type="application/pdf">
+                </body>
+                </html>
+                """
+                html_b64 = base64.b64encode(html_content.encode('utf-8')).decode('utf-8')
                 
-                # HTMLを作成（ブラウザ全体でPDFを表示するページ）
-                pdf_href = f'<a href="data:application/pdf;base64,{pdf_b64}" target="_blank" type="application/pdf" style="display: inline-block; padding: 10px 20px; background-color: #FF4B4B; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">🖨️ PDFを新しいタブで開く</a>'
+                # ボタン風のリンクを表示
+                link_html = f'''
+                <a href="data:text/html;base64,{html_b64}" target="_blank" style="text-decoration:none;">
+                    <div style="background-color:#ff4b4b; color:white; padding:10px 15px; border-radius:5px; text-align:center; font-weight:bold; width:fit-content; display:inline-block;">
+                        🖨️ 新しいタブで開いて印刷
+                    </div>
+                </a>
+                '''
+                st.markdown(link_html, unsafe_allow_html=True)
                 
-                st.markdown(pdf_href, unsafe_allow_html=True)
-                
-                st.info("※ボタンを押しても開かない場合は、ブラウザのポップアップブロックを許可してください。")
+                # --- 2. プレビュー画面 (専用ライブラリ) ---
+                st.write("▼ プレビュー")
+                pdf_viewer(input=pdf_bytes.getvalue(), width=800)
                 
             else:
                 st.error("指定された範囲にデータがないか、範囲設定が間違っています。")
