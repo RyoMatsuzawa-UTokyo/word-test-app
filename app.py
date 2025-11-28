@@ -144,7 +144,7 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
         score_box_w = 40 * mm
         score_box_h = 14 * mm
         score_box_x = width - margin_x - score_box_w
-        score_box_y = height - margin_y - 28*mm
+        score_box_y = height - margin_y - 30*mm
         
         c.setLineWidth(1.2)
         c.rect(score_box_x, score_box_y, score_box_w, score_box_h)
