@@ -6,10 +6,10 @@ from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 import io
-import base64
 import glob
 import os
 import random
+from streamlit_pdf_viewer import pdf_viewer  # 追加したライブラリ
 
 # --- 設定 ---
 st.set_page_config(page_title="単語テスト作成機", layout="wide")
@@ -188,22 +188,20 @@ def create_pdf(target_data, all_data_df, title, score_str, test_type, include_an
     buffer.seek(0)
     return buffer
 
-# --- 修正した表示関数 ---
+# --- プレビュー表示関数 (ここを変更しました) ---
 def display_pdf(pdf_buffer):
-    # 1. まずダウンロードボタンを表示（これが一番確実）
+    # 念のためダウンロードボタンは残しておく（便利なので）
     st.download_button(
-        label="📄 PDFをダウンロードする",
+        label="📄 PDFをダウンロード",
         data=pdf_buffer,
         file_name="word_test.pdf",
-        mime="application/pdf",
-        type="primary"
+        mime="application/pdf"
     )
     
-    # 2. プレビュー表示（iframeではなくembedタグを使用）
-    # Chrome等のブラウザでブロックされにくい書き方に変更しました
-    base64_pdf = base64.b64encode(pdf_buffer.getvalue()).decode('utf-8')
-    pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="100%" height="900" type="application/pdf">'
-    st.markdown(pdf_display, unsafe_allow_html=True)
+    # 専用ライブラリでプレビューを表示
+    # ブラウザのブロック機能に引っかからずに表示できます
+    pdf_bytes = pdf_buffer.getvalue()
+    pdf_viewer(input=pdf_bytes, width=700)
 
 # --- アプリ画面 ---
 st.title("単語テスト作成アプリ")
