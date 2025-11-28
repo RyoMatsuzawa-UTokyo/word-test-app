@@ -10,7 +10,8 @@ import base64
 import glob
 import os
 import random
-from streamlit_pdf_viewer import pdf_viewer  # プレビュー用の専用ライブラリ
+from streamlit_pdf_viewer import pdf_viewer # プレビュー用
+import streamlit.components.v1 as components # 高速ボタン用
 
 # --- 設定 ---
 st.set_page_config(page_title="単語テスト作成機", layout="wide")
@@ -18,8 +19,8 @@ DATA_DIR = "単語data"
 
 # --- フォント設定 ---
 try:
-    pdfmetrics.registerFont(UnicodeCIDFont('HeiseiMin-W3'))
-    JP_FONT_NAME = 'HeiseiMin-W3'
+    pdfmetrics.registerFont(UnicodeCIDFont('HeiseiKakuGo-W5'))
+    JP_FONT_NAME = 'HeiseiKakuGo-W5'
 except:
     JP_FONT_NAME = 'Helvetica'
 EN_FONT_NAME = 'Times-Roman'
@@ -39,13 +40,16 @@ def guess_pos(text):
 def draw_text_fitted(c, text, x, y, max_width, font_name, max_size, min_size=6):
     text = str(text)
     current_size = max_size
-    text_width = c.stringWidth(text, font_name, current_size)
-    if text_width > max_width:
-        ratio = max_width / text_width
-        new_size = current_size * ratio
-        if new_size < min_size:
-            new_size = min_size
-        current_size = new_size
+    try:
+        text_width = c.stringWidth(text, font_name, current_size)
+        if text_width > max_width:
+            ratio = max_width / text_width
+            new_size = current_size * ratio
+            if new_size < min_size:
+                new_size = min_size
+            current_size = new_size
+    except:
+        pass
     c.setFont(font_name, current_size)
     c.drawString(x, y, text)
 
@@ -169,14 +173,13 @@ def create_pdf(target_data, all_data_df, title, score_str, test_type, include_an
                 if include_answers:
                     c.drawCentredString(x_base + col_width - 13*mm, line_1_y, str(correct_num))
                 
-                choice_max_width = (col_width / 2) - 6*mm
+                c.setFont(JP_FONT_NAME, 9)
+                c.setFillColorRGB(0, 0, 0)
                 
                 def draw_choice(idx, txt, cx, cy):
-                    label = f"{idx}. "
-                    c.setFont(JP_FONT_NAME, 10.5)
-                    label_w = c.stringWidth(label, JP_FONT_NAME, 10.5)
+                    label = f"{idx}. {txt}"
+                    if len(label) > 18: label = label[:17] + ".."
                     c.drawString(cx, cy, label)
-                    draw_text_fitted(c, txt, cx + label_w, cy, choice_max_width - label_w, JP_FONT_NAME, 10.5)
 
                 draw_choice(1, choices[0], x_base + 4*mm, line_2_y)
                 draw_choice(2, choices[1], x_base + (col_width/2) + 2*mm, line_2_y)
@@ -259,32 +262,47 @@ else:
                 
                 st.success(f"作成完了！")
                 
-                # --- 1. 印刷用ボタン (HTMLリンクで実装) ---
-                # PDFをHTMLの中に埋め込んだデータを作成し、それを新しいタブで開かせる
-                # これによりChromeのセキュリティブロック（トップフレームへの遷移禁止）を回避します
+                # --- PDFを高速に開くボタン ---
+                # Javascriptを使って、Base64データをBlobオブジェクトに変換し、URLを開きます。
+                # これにより、URLに長大な文字列が入るのを防ぎ、処理落ちを回避します。
                 pdf_b64 = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
-                html_content = f"""
-                <html>
-                <head><title>単語テスト印刷</title></head>
-                <body style="margin:0; padding:0; overflow:hidden;">
-                    <embed src="data:application/pdf;base64,{pdf_b64}" width="100%" height="100%" type="application/pdf">
-                </body>
-                </html>
+                
+                js_code = f"""
+                <script>
+                    function openPdf() {{
+                        var binary = atob("{pdf_b64}");
+                        var array = [];
+                        for (var i = 0; i < binary.length; i++) {{
+                            array.push(binary.charCodeAt(i));
+                        }}
+                        var blob = new Blob([new Uint8Array(array)], {{type: 'application/pdf'}});
+                        var url = URL.createObjectURL(blob);
+                        window.open(url, '_blank');
+                    }}
+                </script>
+                <button onclick="openPdf()" style="
+                    background-color: #FF4B4B; 
+                    color: white; 
+                    border: none; 
+                    padding: 10px 20px; 
+                    text-align: center; 
+                    text-decoration: none; 
+                    display: inline-block; 
+                    font-size: 16px; 
+                    font-weight: bold;
+                    border-radius: 5px; 
+                    cursor: pointer;
+                    margin-bottom: 20px;
+                ">
+                    🖨️ PDFを別タブで開く（高速版）
+                </button>
                 """
-                html_b64 = base64.b64encode(html_content.encode('utf-8')).decode('utf-8')
                 
-                # ボタン風のリンクを表示
-                link_html = f'''
-                <a href="data:text/html;base64,{html_b64}" target="_blank" style="text-decoration:none;">
-                    <div style="background-color:#ff4b4b; color:white; padding:10px 15px; border-radius:5px; text-align:center; font-weight:bold; width:fit-content; display:inline-block;">
-                        🖨️ 新しいタブで開いて印刷
-                    </div>
-                </a>
-                '''
-                st.markdown(link_html, unsafe_allow_html=True)
+                components.html(js_code, height=60)
                 
-                # --- 2. プレビュー画面 (専用ライブラリ) ---
-                st.write("▼ プレビュー")
+                # --- プレビュー ---
+                # 専用ライブラリで見やすく表示
+                st.write("▼ 画面プレビュー")
                 pdf_viewer(input=pdf_bytes.getvalue(), width=800)
                 
             else:
