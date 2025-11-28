@@ -220,7 +220,7 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
                 line_3_y = y_base - 48
                 
                 c.setFont(JP_FONT_GOTHIC, 11)
-                id_str = f"Q{item['id']}."
+                id_str = f"{item['id']}."
                 c.drawString(x_base + 3*mm, line_1_y, id_str)
                 id_width = c.stringWidth(id_str, JP_FONT_GOTHIC, 11)
                 
@@ -230,7 +230,7 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
                 draw_text_fitted(c, str(item['english']), x_base + 4*mm + id_width, line_1_y, max_word_width, EN_FONT_NAME, 13)
                 
                 c.setFont(EN_FONT_NAME, 12)
-                c.drawRightString(x_base + col_width - 5*mm, line_1_y, "(       )")
+                c.drawRightString(x_base + col_width - 4*mm, line_1_y, "(       )")
                 
                 if include_answers:
                     c.setFont(JP_FONT_GOTHIC, 11)
