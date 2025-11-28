@@ -10,7 +10,6 @@ import base64
 import glob
 import os
 import random
-from streamlit_pdf_viewer import pdf_viewer  # プレビュー用の専用ライブラリ
 
 # --- 設定 ---
 st.set_page_config(page_title="単語テスト作成機", layout="wide")
@@ -25,7 +24,9 @@ except:
 EN_FONT_NAME = 'Times-Roman'
 
 # --- ユーティリティ関数 ---
+
 def guess_pos(text):
+    """日本語訳から品詞を簡易的に推測する"""
     text = str(text).strip()
     if "～" in text or text.endswith("する") or text.endswith("る"):
         return "verb_like"
@@ -37,17 +38,27 @@ def guess_pos(text):
         return "noun_like"
 
 def draw_text_fitted(c, text, x, y, max_width, font_name, max_size, min_size=6):
+    """
+    指定された幅(max_width)に収まるようにフォントサイズを自動調整して描画する関数
+    """
     text = str(text)
     current_size = max_size
+    
+    # 現在のフォントサイズでの幅を取得
     text_width = c.stringWidth(text, font_name, current_size)
+    
+    # 幅が枠を超えていたら縮小率を計算
     if text_width > max_width:
         ratio = max_width / text_width
         new_size = current_size * ratio
+        # 最小サイズを下回らないように制限
         if new_size < min_size:
             new_size = min_size
         current_size = new_size
+        
     c.setFont(font_name, current_size)
     c.drawString(x, y, text)
+
 
 # --- データ読み込み ---
 def get_csv_files():
@@ -73,11 +84,13 @@ def create_pdf(target_data, all_data_df, title, score_str, test_type, include_an
     c = canvas.Canvas(buffer, pagesize=A4)
     width, height = A4
     
+    # --- 品詞ごとのグループ分け ---
     pos_groups = {"verb_like": [], "adj_like": [], "noun_like": [], "adv_like": []}
     unique_meanings = all_data_df['japanese'].dropna().unique().tolist()
     for m in unique_meanings:
         pos_groups[guess_pos(m)].append(m)
 
+    # --- レイアウト設定 ---
     margin_x = 12 * mm
     margin_y = 15 * mm
     col_gap = 10 * mm
@@ -89,12 +102,14 @@ def create_pdf(target_data, all_data_df, title, score_str, test_type, include_an
         rows_per_col = 10
         
     items_per_page = cols * rows_per_col
-    col_width = (width - (2 * margin_x) - col_gap) / 2
+    content_width = width - (2 * margin_x)
+    col_width = (content_width - col_gap) / 2
     row_height = (height - (2 * margin_y) - 20*mm) / rows_per_col
 
     total_pages = (len(target_data) + items_per_page - 1) // items_per_page
 
     for page in range(total_pages):
+        # ヘッダー
         c.setFont(JP_FONT_NAME, 14)
         header_text = f"{title}        {score_str}"
         c.drawCentredString(width / 2, height - margin_y, header_text)
@@ -116,25 +131,40 @@ def create_pdf(target_data, all_data_df, title, score_str, test_type, include_an
             text_y = y_base - row_height + (row_height / 2)
 
             if test_type == "記述式":
+                # === 記述式 ===
                 w_id = col_width * 0.10
                 w_word = col_width * 0.45
                 w_ans = col_width * 0.45
                 
+                # 枠線
                 c.rect(x_base, y_base - row_height, w_id, row_height)
                 c.rect(x_base + w_id, y_base - row_height, w_word, row_height)
                 c.rect(x_base + w_id + w_word, y_base - row_height, w_ans, row_height)
                 
+                # ID
                 c.setFont(EN_FONT_NAME, 11)
                 c.drawCentredString(x_base + (w_id / 2), text_y - 3.5, str(item['id']))
                 
-                draw_text_fitted(c, str(item['english']), x_base + w_id + 2*mm, text_y - 3.5, w_word - 4*mm, EN_FONT_NAME, 11)
+                # 英単語 (はみ出し防止適用)
+                draw_text_fitted(
+                    c, str(item['english']), 
+                    x_base + w_id + 2*mm, text_y - 3.5, 
+                    w_word - 4*mm, EN_FONT_NAME, 11
+                )
                 
+                # 解答 (はみ出し防止適用)
                 if include_answers:
-                    draw_text_fitted(c, str(item['japanese']), x_base + w_id + w_word + 2*mm, text_y - 3.5, w_ans - 4*mm, JP_FONT_NAME, 9)
+                    draw_text_fitted(
+                        c, str(item['japanese']), 
+                        x_base + w_id + w_word + 2*mm, text_y - 3.5, 
+                        w_ans - 4*mm, JP_FONT_NAME, 9
+                    )
             
             else:
+                # === 4択式 ===
                 c.rect(x_base, y_base - row_height, col_width, row_height)
                 
+                # ダミー生成
                 correct_ans = item['japanese']
                 target_pos = guess_pos(correct_ans)
                 candidates = [cand for cand in pos_groups.get(target_pos, []) if cand != correct_ans]
@@ -156,27 +186,44 @@ def create_pdf(target_data, all_data_df, title, score_str, test_type, include_an
                 line_2_y = y_base - 32
                 line_3_y = y_base - 48
                 
+                # 1. IDと英単語
                 c.setFont(EN_FONT_NAME, 12)
                 id_width = c.stringWidth(f"{item['id']}. ", EN_FONT_NAME, 12)
                 c.drawString(x_base + 2*mm, line_1_y, f"{item['id']}. ")
                 
+                # 英単語が長い場合、括弧に被らないように調整
                 max_word_width = col_width - 25*mm - id_width 
-                draw_text_fitted(c, str(item['english']), x_base + 2*mm + id_width, line_1_y, max_word_width, EN_FONT_NAME, 12)
+                draw_text_fitted(
+                    c, str(item['english']),
+                    x_base + 2*mm + id_width, line_1_y,
+                    max_word_width, EN_FONT_NAME, 12
+                )
                 
+                # 解答欄
                 c.setFont(EN_FONT_NAME, 12)
                 c.drawString(x_base + col_width - 20*mm, line_1_y, "(             )")
                 
                 if include_answers:
                     c.drawCentredString(x_base + col_width - 13*mm, line_1_y, str(correct_num))
                 
+                # 2. 選択肢 (はみ出し防止適用)
+                # 選択肢の許容幅（2列にするので、全幅の半分から少し余白を引く）
                 choice_max_width = (col_width / 2) - 6*mm
                 
+                # 選択肢の描画関数
                 def draw_choice(idx, txt, cx, cy):
+                    # 番号 "1. "
                     label = f"{idx}. "
                     c.setFont(JP_FONT_NAME, 10.5)
                     label_w = c.stringWidth(label, JP_FONT_NAME, 10.5)
                     c.drawString(cx, cy, label)
-                    draw_text_fitted(c, txt, cx + label_w, cy, choice_max_width - label_w, JP_FONT_NAME, 10.5)
+                    
+                    # 内容 (自動縮小)
+                    draw_text_fitted(
+                        c, txt, 
+                        cx + label_w, cy, 
+                        choice_max_width - label_w, JP_FONT_NAME, 10.5
+                    )
 
                 draw_choice(1, choices[0], x_base + 4*mm, line_2_y)
                 draw_choice(2, choices[1], x_base + (col_width/2) + 2*mm, line_2_y)
@@ -188,6 +235,11 @@ def create_pdf(target_data, all_data_df, title, score_str, test_type, include_an
     c.save()
     buffer.seek(0)
     return buffer
+
+def display_pdf(pdf_buffer):
+    base64_pdf = base64.b64encode(pdf_buffer.getvalue()).decode('utf-8')
+    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="900" type="application/pdf"></iframe>'
+    st.markdown(pdf_display, unsafe_allow_html=True)
 
 # --- アプリ画面 ---
 st.title("単語テスト作成アプリ")
@@ -258,34 +310,6 @@ else:
                 )
                 
                 st.success(f"作成完了！")
-                
-                # --- 1. 印刷用ボタン (HTMLリンクで実装) ---
-                # PDFをHTMLの中に埋め込んだデータを作成し、それを新しいタブで開かせる
-                # これによりChromeのセキュリティブロック（トップフレームへの遷移禁止）を回避します
-                pdf_b64 = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
-                html_content = f"""
-                <html>
-                <head><title>単語テスト印刷</title></head>
-                <body style="margin:0; padding:0; overflow:hidden;">
-                    <embed src="data:application/pdf;base64,{pdf_b64}" width="100%" height="100%" type="application/pdf">
-                </body>
-                </html>
-                """
-                html_b64 = base64.b64encode(html_content.encode('utf-8')).decode('utf-8')
-                
-                # ボタン風のリンクを表示
-                link_html = f'''
-                <a href="data:text/html;base64,{html_b64}" target="_blank" style="text-decoration:none;">
-                    <div style="background-color:#ff4b4b; color:white; padding:10px 15px; border-radius:5px; text-align:center; font-weight:bold; width:fit-content; display:inline-block;">
-                        🖨️ 新しいタブで開いて印刷
-                    </div>
-                </a>
-                '''
-                st.markdown(link_html, unsafe_allow_html=True)
-                
-                # --- 2. プレビュー画面 (専用ライブラリ) ---
-                st.write("▼ プレビュー")
-                pdf_viewer(input=pdf_bytes.getvalue(), width=800)
-                
+                display_pdf(pdf_bytes)
             else:
                 st.error("指定された範囲にデータがないか、範囲設定が間違っています。")
