@@ -265,3 +265,45 @@ else:
                 
                 # --- PDFを高速に開くボタン ---
                 pdf_b64 = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
+                pdf_b64 = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
+                
+                js_code = f"""
+                <script>
+                    function openPdf() {{
+                        var binary = atob("{pdf_b64}");
+                        var array = [];
+                        for (var i = 0; i < binary.length; i++) {{
+                            array.push(binary.charCodeAt(i));
+                        }}
+                        var blob = new Blob([new Uint8Array(array)], {{type: 'application/pdf'}});
+                        var url = URL.createObjectURL(blob);
+                        window.open(url, '_blank');
+                    }}
+                </script>
+                <button onclick="openPdf()" style="
+                    background-color: #FF4B4B; 
+                    color: white; 
+                    border: none; 
+                    padding: 10px 20px; 
+                    text-align: center; 
+                    text-decoration: none; 
+                    display: inline-block; 
+                    font-size: 16px; 
+                    font-weight: bold;
+                    border-radius: 5px; 
+                    cursor: pointer;
+                    margin-bottom: 20px;
+                ">
+                    🖨️ PDFを別タブで開く（高速版）
+                </button>
+                """
+                
+                components.html(js_code, height=60)
+                
+                # --- プレビュー ---
+                # 専用ライブラリで見やすく表示
+                st.write("▼ 画面プレビュー")
+                pdf_viewer(input=pdf_bytes.getvalue(), width=800)
+                
+            else:
+                st.error("指定された範囲にデータがないか、範囲設定が間違っています。")
