@@ -327,6 +327,7 @@ else:
                 )
                 
                 st.success(f"✅ 作成完了！プレビューは印刷ボタンを押して確認してね！")
+                st.caption(f"*英熟語は通し番号で出題してください。")
                 pdf_b64 = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
                 
                 js_code = f"""
