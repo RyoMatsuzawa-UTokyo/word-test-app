@@ -293,6 +293,7 @@ else:
         with col2:
             end_id_default = min(min_id+49, max_id)
             end_id = st.number_input("終了ID", min_value=min_id, max_value=max_id, value=end_id_default)
+        st.sidebar.caption(f"通し番号で入力")
 
         st.sidebar.markdown("---")
         st.sidebar.header("2. テスト形式")
@@ -327,7 +328,7 @@ else:
                 )
                 
                 st.success(f"✅ 作成完了！プレビューは印刷ボタンを押して確認してね！")
-                st.caption(f"*英熟語は通し番号で出題してください。")
+                #st.caption(f"*英熟語は通し番号で出題してください。")
                 pdf_b64 = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
                 
                 js_code = f"""
