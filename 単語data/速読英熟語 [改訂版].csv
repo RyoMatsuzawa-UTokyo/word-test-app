@@ -127,7 +127,7 @@ id,english,japanese
 126,that is,つまり
 127,S wish,であればよいのに
 128,X times as as,のX倍
-129,"the比較級, the 比較級",〜すればするほどますます
+129,"the 比較級, the 比較級",〜すればするほどますます
 130,be supposed to do,することになっている
 131,make the best of,を最大限に活かす
 132,try on,を試着する
@@ -1081,4 +1081,5 @@ id,english,japanese
 1081,out of order,故障して
 1082,stand by,の味方をする
 1083,be suited to,に適した
+
 1084,on,〜に
