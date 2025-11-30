@@ -293,7 +293,7 @@ else:
         with col2:
             end_id_default = min(min_id+49, max_id)
             end_id = st.number_input("終了ID", min_value=min_id, max_value=max_id, value=end_id_default)
-        st.sidebar.caption(f"通し番号で入力")
+        st.sidebar.caption(f"**通し番号で入力してください**")
 
         st.sidebar.markdown("---")
         st.sidebar.header("2. テスト形式")
