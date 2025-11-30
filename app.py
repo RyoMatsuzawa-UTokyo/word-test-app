@@ -299,7 +299,7 @@ else:
         st.sidebar.header("2. テスト形式")
         test_type = st.sidebar.selectbox("出題形式", ["記述式", "客観式"])
         
-        default_title = f"{os.path.splitext(selected_filename)[0]} テスト (No.{start_id}-No.{end_id})"
+        default_title = f"{os.path.splitext(selected_filename)[0]} テスト No.{start_id}-No.{end_id}"
         title_input = st.sidebar.text_input("タイトル", value=default_title)
         
         order_mode = st.sidebar.radio("出題順序", ["順番通り", "ランダム"], horizontal=True)
