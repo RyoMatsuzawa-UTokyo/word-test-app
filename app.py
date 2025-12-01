@@ -308,7 +308,7 @@ else:
         st.sidebar.markdown("---")
         mode = st.sidebar.radio("出力モード", ["問題用紙", "模範解答"], horizontal=True)
         
-        if st.sidebar.button("問題作成", type="primary"):
+        if st.sidebar.button("作成", type="primary"):
             target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
             
             if len(target_df) > 0 and start_id <= end_id:
