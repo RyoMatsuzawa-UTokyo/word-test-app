@@ -482,7 +482,7 @@ id,english,japanese
 481,status,地位
 482,equal,等しい
 483,relationship,関係
-484,reputation,評判〈可算〉
+484,reputation,評判
 485,trend,風潮
 486,service,事業
 487,religion,宗教
@@ -1196,7 +1196,7 @@ id,english,japanese
 1195,semester,学期
 1196,biology,生物学
 1197,ecology,生態
-1198,philosophy,哲学〈不可算〉
+1198,philosophy,哲学
 1199,geography,地理
 1200,institution,機関
 1201,faculty,能力
@@ -2167,7 +2167,7 @@ id,english,japanese
 2166,carnivore,肉食動物
 2167,vertebrate,脊椎動物
 2168,primate,霊長類
-2169,parasite,寄生虫［動物
+2169,parasite,寄生虫
 2170,cortex,皮質
 2171,sibling,兄弟姉妹
 2172,extrovert,外交的な人
@@ -2210,7 +2210,7 @@ id,english,japanese
 2209,distress,苦しみ
 2210,apprehension,不安
 2211,scorn,軽蔑
-2212,menace,厄介なもの［人］
+2212,menace,厄介なもの
 2213,sentiment,感情
 2214,verge,瀬戸際
 2215,plausible,もっともらしい
@@ -2259,7 +2259,7 @@ id,english,japanese
 2258,preoccupied,夢中になった
 2259,prone,～しがちである
 2260,apt,～する傾向がある
-2261,empirical,経験［実験］による
+2261,empirical,経験による
 2262,susceptible,影響を受けやすい
 2263,pivotal,極めて重要な
 2264,fabulous,とても素敵な
@@ -2297,5 +2297,6 @@ id,english,japanese
 2296,spatial,空間の
 2297,hollow,空洞の
 2298,homogeneous,均質の
-2299,feasible,実現［実行］可能な
+2299,feasible,実現可能な
 2300,viable,実行可能な
+
