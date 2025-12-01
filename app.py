@@ -14,7 +14,7 @@ import streamlit.components.v1 as components
 from streamlit_pdf_viewer import pdf_viewer
 
 # --- 設定 ---
-st.set_page_config(page_title="単語テスト生成アプリ", layout="wide")
+st.set_page_config(page_title="単語テストアプリ", layout="wide")
 DATA_DIR = "単語data"
 
 # --- フォント設定 ---
@@ -268,7 +268,7 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
     return buffer
 
 # --- アプリ画面 ---
-st.title("🖨️ 単語テスト生成アプリ")
+st.title("🖨️ 単語テストアプリ")
 
 csv_files_paths = get_csv_files()
 
@@ -293,11 +293,12 @@ else:
         with col2:
             end_id_default = min(min_id+49, max_id)
             end_id = st.number_input("終了ID", min_value=min_id, max_value=max_id, value=end_id_default)
+        st.sidebar.caption(f"収録範囲: No.{min_id} ～ No.{max_id}")
         st.sidebar.caption(f"**通し番号で入力してください**")
 
         st.sidebar.markdown("---")
         st.sidebar.header("2. テスト形式")
-        test_type = st.sidebar.selectbox("出題形式", ["記述式", "客観式"])
+        test_type = st.sidebar.selectbox("出題形式", ["4択式", "記述式"])
         
         default_title = f"{os.path.splitext(selected_filename)[0]} テスト No.{start_id}-No.{end_id}"
         title_input = st.sidebar.text_input("タイトル", value=default_title)
