@@ -280,7 +280,7 @@ else:
         max_id = int(df['id'].max())
         st.sidebar.caption(f"収録範囲: No.{min_id} ～ No.{max_id}")
         st.sidebar.subheader("出題範囲")
-        st.sidebar.caption(f"**通し番号で入力してください**")
+        st.sidebar.caption(f"*通し番号で入力してください")
         col1, col2 = st.sidebar.columns(2)
         with col1:
             start_id = st.number_input("開始ID", min_value=min_id, max_value=max_id, value=min_id)
