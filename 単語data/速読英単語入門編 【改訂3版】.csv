@@ -2,7 +2,7 @@ id,english,japanese
 1,different,～と違った
 2,hobby,趣味
 3,enjoy,を楽しむ
-4,love,を愛している／愛
+4,love,を愛している
 5,prefer,～よりを好む
 6,hate,を憎む
 7,ask,尋ねる
@@ -96,7 +96,7 @@ id,english,japanese
 95,transfer,を移動させる
 96,pass,に合格する
 97,hurry,急ぐ
-98,flow,流れる／流れ
+98,flow,流れる
 99,stream,小川
 100,heart,心臓
 101,sour,すっぱい
@@ -207,8 +207,8 @@ id,english,japanese
 206,surprisingly,驚くほど(に)
 207,product,製品
 208,throw,投げる
-209,environment,(自然)環境
-210,circumstance,《通例-s》状況
+209,environment,環境
+210,circumstance,状況
 211,attitude,態度，姿勢
 212,eco-friendly,環境にやさしい
 213,ecology,生態(学)
@@ -264,9 +264,9 @@ id,english,japanese
 263,alarm,おそれ
 264,even,…(で)さえ
 265,count,を数える/重要である
-266,depend,《～に》頼る
-267,independent,《～から》自立した
-268,rely,頼る《on》
+266,depend,～に頼る
+267,independent,～から自立した
+268,rely,〜に頼る
 269,beat,打つこと
 270,hit,たたく
 271,strike,(物が)にぶつかる
@@ -276,7 +276,7 @@ id,english,japanese
 275,mention,に言及する
 276,refer,～に言及する
 277,finish,を終える
-278,place,場所／を置く
+278,place,場所
 279,differently,異なって
 280,culture,文化
 281,important,重要な
@@ -291,11 +291,11 @@ id,english,japanese
 290,inevitable,避けられない
 291,assure,(人)に保証する
 292,rude,無礼な
-293,late,遅く／遅れた
+293,late,遅れた
 294,relax,をくつろがせる
 295,comfortable,快適な
 296,relieve,を取り除く
-297,schedule,予定表／を予定する
+297,schedule,〜を予定する
 298,project,を計画する
 299,arrangement,手配
 300,delay,遅延
@@ -312,7 +312,7 @@ id,english,japanese
 311,prove,を証明する
 312,superstitious,迷信的な
 313,world,世界
-314,million,100万の／100万
+314,million,100万の
 315,billion,10億
 316,dozen,ダース[12個]
 317,superstition,迷信
@@ -320,7 +320,7 @@ id,english,japanese
 319,trust,信頼
 320,faith,信頼
 321,suspect,だと思う
-322,doubt,疑い／疑う
+322,doubt,疑う
 323,abroad,外国へ
 324,overseas,海外の
 325,international,国際的な
@@ -367,8 +367,8 @@ id,english,japanese
 366,commerce,商業
 367,industry,産業
 368,trade,取引する
-369,import,輸入／を輸入する
-370,export,輸出／を輸出する
+369,import,を輸入する
+370,export,〜を輸出する
 371,stock,株式
 372,invest,投資する
 373,capital,資本(金)
@@ -383,13 +383,13 @@ id,english,japanese
 382,backward,後ろへ
 383,forward,前に
 384,back,後ろへ
-385,return,戻る／を戻す
+385,return,戻る
 386,unite,一体にする
 387,wear,を身につけている
 388,team,チーム
 389,crowd,群衆
 390,staff,職員
-391,lose,を失う／負ける
+391,lose,を失う
 392,silly,愚かな
 393,foolish,愚かな
 394,fool,愚か者
@@ -409,7 +409,7 @@ id,english,japanese
 408,clothes,衣服
 409,accident,事故
 410,last,最後の
-411,initial,初めの／頭文字
+411,initial,初めの
 412,plate,皿
 413,fashion,流行
 414,formal,形式の
@@ -465,7 +465,7 @@ id,english,japanese
 464,war,戦争
 465,light,光
 466,shine,輝く
-467,dark,暗い／暗やみ
+467,dark,暗い
 468,army,軍隊
 469,military,軍隊の
 470,weapon,武器
@@ -491,13 +491,13 @@ id,english,japanese
 490,defend,守る
 491,invade,に侵入する
 492,purpose,目的
-493,tie,を結ぶ／結べる
+493,tie,を結ぶ
 494,hang,をつるす
 495,fly,飛ぶ
 496,musical,音楽の
 497,enemy,敵(軍)
 498,run,走る
-499,sound,音／～に思われる
+499,sound,音
 500,warning,警告
 501,attention,注意
 502,care,世話
@@ -552,7 +552,7 @@ id,english,japanese
 551,decrease,減少する
 552,reduce,を減らす
 553,diminish,減少する
-554,lessen,を減らす／減る
+554,lessen,を減らす
 555,fall,落ちる
 556,drop,を落とす
 557,carrier,運送業者
@@ -605,7 +605,7 @@ id,english,japanese
 604,normally,標準的に
 605,normal,標準の
 606,spend,を費やす
-607,waste,浪費する／浪費
+607,waste,浪費する
 608,clean,清潔な
 609,dirty,汚い
 610,main,主要な
@@ -633,7 +633,7 @@ id,english,japanese
 632,evolution,進化(論)
 633,innovation,革新
 634,detect,を検出する
-635,experience,経験／を経験する
+635,experience,〜を経験する
 636,suffer,苦しむ
 637,area,地域
 638,state,状態
@@ -682,7 +682,7 @@ id,english,japanese
 681,maintain,を主張する
 682,sustain,を持続させる
 683,understand,理解する
-684,link,関連／をつなぐ
+684,link,関連
 685,actually,実は
 686,TRUE,本当の
 687,usually,たいてい
@@ -725,7 +725,7 @@ id,english,japanese
 724,emotion,感情
 725,sense,感覚
 726,moment,時
-727,instant,即刻の／瞬間
+727,instant,即刻の
 728,angry,怒った
 729,mad,怒っている
 730,crazy,正気でない
@@ -739,7 +739,7 @@ id,english,japanese
 738,despair,絶望する
 739,lonely,孤独の
 740,frustrate,をいらいらさせる
-741,ashamed,《～を》恥じて
+741,ashamed,～を恥じて
 742,likely,…しそうで
 743,romantic,情熱的な
 744,warm,暖かい
@@ -767,7 +767,7 @@ id,english,japanese
 766,fit,合う
 767,match,と調和する
 768,adjust,を調節する
-769,adapt,《～に》適応する
+769,adapt,～に適応する
 770,adopt,を採用する
 771,apply,申し込む
 772,scene,場面
@@ -803,7 +803,7 @@ id,english,japanese
 802,silence,沈黙
 803,advice,忠告
 804,score,得点
-805,average,平均／平均的な
+805,average,平均
 806,whole,全体の
 807,summary,要約
 808,detail,細部
@@ -865,11 +865,11 @@ id,english,japanese
 864,earn,を得る
 865,meanwhile,その間に
 866,impatient,いらいらしている
-867,patient,患者／忍耐強い
+867,patient,患者
 868,press,押すこと
 869,urgent,緊急の
 870,receive,を受け取る
-871,reply,《～に》答える
+871,reply,～に答える
 872,inform,に知らせる
 873,announce,を発表する
 874,fire,を解雇する
@@ -882,13 +882,13 @@ id,english,japanese
 881,prison,刑務所
 882,allow,を許す
 883,forgive,を許す
-884,excuse,を許す／言い訳
+884,excuse,を許す
 885,permit,を許す
 886,license,を認可する
 887,step,歩み
 888,stage,段階
 889,process,過程
-890,lead,通じる／を導く
+890,lead,〜を導く
 891,direct,を向ける
 892,guide,案内する
 893,control,を支配する
@@ -900,12 +900,12 @@ id,english,japanese
 899,broad,広範囲に及ぶ
 900,wide,幅の広い
 901,narrow,狭い
-902,deep,深い／深く
+902,deep,深い
 903,shallow,浅い
 904,extend,を延長する
 905,expand,を拡大する
 906,extent,程度
-907,nap,昼寝／昼寝をする
+907,nap,昼寝をする
 908,grow,を栽培する
 909,raise,を育てる
 910,rear,を育てる
@@ -953,7 +953,7 @@ id,english,japanese
 952,extremely,非常に
 953,outside,の外に
 954,heat,熱
-955,wave,波／を振る
+955,wave,波
 956,ghost,幽霊
 957,unlike,と異なって
 958,action,行動
@@ -968,7 +968,7 @@ id,english,japanese
 967,fulfill,を満たす
 968,call,Aを(Bと)呼ぶ
 969,family,家族
-971,relative,親戚／相対的な
+971,relative,親戚
 972,ancestor,先祖
 973,healthy,健康な
 974,conventional,従来の
@@ -1020,7 +1020,7 @@ id,english,japanese
 1020,join,に参加する
 1021,participate,参加する
 1022,drink,飲む
-1023,laugh,《～を》笑う
+1023,laugh,～を笑う
 1024,origin,起源
 1025,resource,資源
 1026,lie,横たわっている
@@ -1048,7 +1048,7 @@ id,english,japanese
 1048,tourist,旅行者
 1049,board,板
 1050,opportunity,機会
-1051,talk,話す／話
+1051,talk,話す
 1052,issue,問題
 1053,communication,伝達
 1054,conversation,会話
@@ -1101,7 +1101,7 @@ id,english,japanese
 1102,ingredient,材料
 1103,share,を共有する
 1104,distribute,を分配する
-1105,famous,《～で》有名な
+1105,famous,～で有名な
 1106,modern,現代の
 1107,ancient,古代の
 1108,doctor,医者
@@ -1114,7 +1114,7 @@ id,english,japanese
 1115,resolve,を解決する
 1116,settle,を決める
 1117,mystery,不思議
-1118,hope,望む／希望
+1118,hope,望む
 1119,wish,願う
 1120,secret,秘密
 1121,medical,医学の
@@ -1145,7 +1145,7 @@ id,english,japanese
 1146,teenager,10代の若者
 1147,youth,若者
 1148,senior,先輩の
-1149,elder,年上の／長老
+1149,elder,年上の
 1150,profit,利益
 1151,advantage,有利
 1152,merit,長所
@@ -1278,7 +1278,7 @@ id,english,japanese
 1279,tightly,ぴったりと
 1280,tight,しっかり固定した
 1281,attach,を取り付ける
-1282,praise,賞賛／を賞賛する
+1282,praise,賞賛する
 1283,admire,賞賛する
 1284,respect,尊敬
 1285,ignore,を無視する
@@ -1286,7 +1286,7 @@ id,english,japanese
 1287,blame,を非難する
 1288,apologize,謝る
 1289,shame,恥
-1290,notice,に気づく／注意
+1290,notice,に気づく
 1291,realize,を悟る
 1292,aware,気づいて
 1293,conscious,気づいて
@@ -1384,7 +1384,7 @@ id,english,japanese
 1385,reflect,反射する
 1386,present,存在して
 1387,absent,欠席して
-1388,current,現在の／流れ
+1388,current,現在の
 1389,exist,存在する
 1390,recent,最近の
 1391,cheerful,元気のいい
@@ -1447,3 +1447,4 @@ id,english,japanese
 1448,deprive,〜から奪う
 1449,steal,〜を盗む
 1450,police,警察
+
