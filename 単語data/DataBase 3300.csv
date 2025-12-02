@@ -69,7 +69,7 @@ id,english,japanese
 68,shout,叫ぶ
 69,wish,であればいいと思う
 70,promise,約束する
-71,let,に させる
+71,let,に〜させる
 72,stand,立つ
 73,at,で
 74,at,に
@@ -194,8 +194,8 @@ id,english,japanese
 193,and,そして
 194,but,しかし
 195,or,または
-196,because,なぜなら だから
-197,if,もしも ならば
+196,because,なぜなら〜だから
+197,if,もしも〜ならば
 198,buy,を買う
 199,sell,を売る
 200,spend,を費やす
@@ -233,9 +233,9 @@ id,english,japanese
 232,anything,何か
 233,everyone,だれでも
 234,everything,すべてのもの・こと
-235,nobody,だれも ない
-236,nothing,何も ない
-237,none,だれも ない
+235,nobody,だれも〜ない
+236,nothing,何も〜ない
+237,none,だれも〜ない
 238,garbage,ごみ
 239,trash,ごみ
 240,plastic,ビニール製の
@@ -337,11 +337,11 @@ id,english,japanese
 336,into,の中に
 337,all,全部
 338,each,それぞれ
-339,every,どの も
+339,every,どの〜も
 340,both,両方
 341,either,どちらか一方
-342,neither,どちらも ない
-343,another,もうひとつ の
+342,neither,どちらも〜ない
+343,another,もうひとつの
 344,other,もう一方
 345,such,そのような
 346,careful,注意深い
@@ -363,8 +363,8 @@ id,english,japanese
 362,I’m coming,すぐ行くよ
 363,come to do,するようになる
 364,come from,の出身だ
-365,come across,人 に偶然出会う
-366,come across,物 を見つける
+365,come across,人に偶然出会う
+366,come across,物を見つける
 367,come out,明らかになる
 368,come out of,から出てくる
 369,come down,降りてくる
@@ -509,7 +509,7 @@ id,english,japanese
 508,keep in a safe place,を安全な場所にしまう
 509,keep on -ing,し続ける
 510,keep away from,に近づかない
-511,keep from -ing,に させない
+511,keep from -ing,〜に〜させない
 512,keep up,続く
 513,keep up with,に遅れずについていく
 514,keep in touch with,と連絡を保つ
@@ -551,7 +551,7 @@ id,english,japanese
 550,forward,前方に
 551,straight,まっすぐに
 552,abroad,外国に
-553,only,ただ だけ
+553,only,ただ〜だけ
 554,alone,ひとりで
 555,also,もまた
 556,else,そのほかに
@@ -696,7 +696,7 @@ id,english,japanese
 695,record,記録
 696,noise,騒音
 697,bring,物を持ってくる
-698,bring to,を に連れていく
+698,bring to,を〜に連れていく
 699,bring happiness,幸せをもたらす
 700,bring wealth,富をもたらす
 701,bring chaos,混乱をもたらす
@@ -913,7 +913,7 @@ id,english,japanese
 912,be lost,道に迷っている
 913,break up,ばらばらにする
 914,break out,起こる
-915,break down,を 壊す
+915,break down,を壊す
 916,break into,に押し入る
 917,cheer up,元気を出す
 918,do one’s best,最善をつくす
@@ -973,7 +973,7 @@ id,english,japanese
 972,pack,荷作りする
 973,discover,を発見する
 974,recover,回復する
-975,single,ただひとつ の
+975,single,ただひとつの
 976,twice,2度
 977,double,2重の
 978,quarter,4分の
@@ -1132,7 +1132,7 @@ id,english,japanese
 1131,bottom,底
 1132,somewhere,どこかで
 1133,anywhere,どこかに
-1134,nowhere,どこにも ない
+1134,nowhere,どこにもない
 1135,surprise,を驚かせる
 1136,embarrass,に恥ずかしい思いをさせる
 1137,wonder,不思議に思う
@@ -1156,7 +1156,7 @@ id,english,japanese
 1155,previous,前の
 1156,following,以下の
 1157,treat,を扱う
-1158,recognize,が わかる
+1158,recognize,がわかる
 1159,confirm,を確認する
 1160,appreciate,に感謝する
 1161,accept,を受け入れる
@@ -1248,7 +1248,7 @@ id,english,japanese
 1247,talk to oneself,ひとり言を言う
 1248,say to oneself,と心の中で思う
 1249,say hello to,によろしくと言う
-1250,hear from,から便り をもらう
+1250,hear from,から便りをもらう
 1251,hear of,のことを耳にする
 1252,belong to,に所属している
 1253,change into,に変わる
@@ -1258,10 +1258,10 @@ id,english,japanese
 1257,had better do,したほうがよい
 1258,ought to do,すべきである
 1259,be supposed to do,することになっている
-1260,used to do,よく したものだ
+1260,used to do,よく〜したものだ
 1261,be used to,に慣れている
 1262,be likely to do,しそうである
-1263,be willing to do,快く する
+1263,be willing to do,快く〜する
 1264,be ready to do,する用意ができている
 1265,call up,電話をかける
 1266,call at,に立ち寄る
@@ -1348,11 +1348,11 @@ id,english,japanese
 1347,situation,状況
 1348,represent,を表す
 1349,display,を示す
-1350,indicate,を 示す
+1350,indicate,を示す
 1351,prove,を証明する
 1352,reveal,を明らかにする
 1353,instant,即座の
-1354,primitive,原始 の
+1354,primitive,原始の
 1355,ancient,古代の
 1356,final,最終の
 1357,annual,毎年の
@@ -1419,7 +1419,7 @@ id,english,japanese
 1418,encourage,を励ます
 1419,relieve,を安心させる
 1420,fascinate,を魅了する
-1421,force,に無理やり させる
+1421,force,に無理やり〜させる
 1422,confuse,を混乱させる
 1423,competition,競争
 1424,battle,戦闘
@@ -1610,20 +1610,20 @@ id,english,japanese
 1609,such as to do,するような
 1610,be about to do,しようとしている
 1611,in order to do,するために
-1612,too to do,するには すぎる
+1612,too to do,〜するには〜すぎる
 1613,enough to do,するのに十分
 1614,go along,をまっすぐ行く
 1615,catch up,追いつく
 1616,feel sorry for,のことを気の毒に思う
 1617,remind of A,Aに〜を思い出させる
 1618,owe to,のおかげである
-1619,no longer,もはや でない
-1620,not at all,少しも ない
-1621,not always,いつも とは限らない
+1619,no longer,もはや〜でない
+1620,not at all,少しも〜ない
+1621,not always,いつも〜とは限らない
 1622,anything but,以外なら何でもする
-1623,nothing but,ただ だけ
+1623,nothing but,ただ〜だけ
 1624,far from,からはほど遠い
-1625,by no means,決して ない
+1625,by no means,決して〜ない
 1626,get rid of,を取り除く
 1627,look into,を調査する
 1628,pick up,を拾いあげる
@@ -1698,8 +1698,8 @@ id,english,japanese
 1697,admit,を許可する
 1698,permit,を許す
 1699,consider,よく考える
-1700,regard,を とみなす
-1701,identify,が何 だかわかる
+1700,regard,を〜とみなす
+1701,identify,が何〜だかわかる
 1702,determine,を決心する
 1703,inform,に知らせる
 1704,mention,について言及する
@@ -1770,7 +1770,7 @@ id,english,japanese
 1769,apologize,あやまる
 1770,whoever,する人はだれでも
 1771,whichever,するものはどちらでも
-1772,whatever,するものは何 でも
+1772,whatever,するものは何でも
 1773,seldom,めったにない
 1774,scarcely,ほとんどない
 1775,occasionally,ときおり
@@ -1792,7 +1792,7 @@ id,english,japanese
 1791,temple,寺
 1792,demand,を要求する
 1793,claim,を要求する
-1794,desire,を 望む
+1794,desire,を望む
 1795,seek,捜す
 1796,persuade,を説得する
 1797,inspire,を奮起させる
@@ -1892,7 +1892,7 @@ id,english,japanese
 1891,nuclear,原子力の
 1892,emergency,緊急時
 1893,network,ネットワーク
-1894,digital,デジタル の
+1894,digital,デジタルの
 1895,device,機器
 1896,ecology,生態
 1897,alternative,代替の
@@ -1921,7 +1921,7 @@ id,english,japanese
 1920,in contrast,対照的に
 1921,in place of,の代わりに
 1922,in turn,順番に
-1923,happen to do,たまたま する
+1923,happen to do,たまたま〜する
 1924,to tell the truth,実を言うと
 1925,so to speak,いわば
 1926,needless to say,言うまでもなく
@@ -1951,7 +1951,7 @@ id,english,japanese
 1950,instead of,の代わりに
 1951,in spite of,にもかかわらず
 1952,except for,を除いては
-1953,but for,もし がなければ
+1953,but for,もし〜がなければ
 1954,along with,といっしょに
 1955,for a moment,ちょっとのあいだ
 1956,for a while,しばらくのあいだ
@@ -1962,8 +1962,8 @@ id,english,japanese
 1961,as far as,する限り
 1962,as long as,しているあいだは
 1963,by the time,する時までに
-1964,as if,まるで であるかのように
-1965,even if,たとえ でも
+1964,as if,まるで〜であるかのように
+1965,even if,たとえ〜でも
 1966,in case,の場合は
-1967,so that may,が するように
+1967,so that may,〜が〜するように
 1968,not only A but(also) B,AだけでなくBも
