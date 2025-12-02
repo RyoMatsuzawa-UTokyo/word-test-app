@@ -5,7 +5,7 @@ id,english,japanese
 4,be incapable of ing,することができない
 5,at one's wit's end,途方に暮れて
 6,be cut out for,に向いている
-7,make a contribution to,に貢献 する
+7,make a contribution to,に貢献する
 8,turn to,に頼る
 9,be suitable for,に適した
 10,in the course of,の間に
@@ -20,8 +20,8 @@ id,english,japanese
 19,pick out,を選ぶ
 20,be similar to,と似ている
 21,single out,を特に選び出す
-22,have in common,共通の を持つ
-23,be afraid to do,怖くて できない
+22,have in common,共通の〜を持つ
+23,be afraid to do,怖くて〜できない
 24,see A as B,AをBとみなす
 25,at first glance,一見したところ
 26,be anxious to do,することを切望する
@@ -46,7 +46,7 @@ id,english,japanese
 45,by all means,何としても
 46,keep in mind,のことを心に留めておく
 47,", when",そしてその時
-48,it is that,することは である
+48,it is that,することは〜である
 49,go on,を続ける
 50,add A to B,AをBに加える
 51,hear of,のうわさを聞く
@@ -80,21 +80,21 @@ id,english,japanese
 79,take the trouble to do,わざわざ〜する
 80,out of date,時代遅れの
 81,for the present,差し当たり
-82,too to do,するには すぎる
+82,too to do,するには〜すぎる
 83,a host of,たくさんの
 84,hand down,を手渡す
 85,for a while,しばらくの間
 86,hang on,手放さない
 87,in particular,特に
-88,put to use,を利用 する
+88,put to use,を利用する
 89,take up,を占める
 90,put out,を出版する
 91,adapt A to B,AをBに適応させる
 92,take a chance,思い切ってやってみる
 93,many a,多くの
-94,it appears that,のように見 える
+94,it appears that,のように見える
 95,A as well as B,BだけでなくAも
-96,it costs S to do S,が するのにかかる
+96,it costs S to do,Sが〜するのにかかる
 97,be in the habit of ing,する習慣になっている
 98,both A and B,AもBも
 99,at will,意のままに
@@ -107,7 +107,7 @@ id,english,japanese
 106,be true of,に当てはまる
 107,be liable to do,しやすい傾向にある
 108,be of interest,興味深い
-109,remember to do,忘れずに する
+109,remember to do,忘れずに〜する
 110,not only A but B,AだけでなくBも
 111,to tell the truth,実を言うと
 112,cannot but do,しないわけにはいかない
@@ -143,9 +143,9 @@ id,english,japanese
 142,to be honest,正直に言えば
 143,over,をめぐって
 144,on earth,一体全体
-145,neither A nor B,AもBも ない
+145,neither A nor B,AもBも〜ない
 146,lest S,しないように
-147,be accustomed to,に 慣れている
+147,be accustomed to,に慣れている
 148,be grateful for B,Bについて感謝している
 149,contribute to,の一因となる
 150,more often than not,たいてい
@@ -167,7 +167,7 @@ id,english,japanese
 166,for good,永久に
 167,and so on,など
 168,view A as B,AをBとみなす
-169,relieve A of B,AからB を取り除く
+169,relieve A of B,AからBを取り除く
 170,let go of,を手放す
 171,hold back,を抑える
 172,bring to light,を明るみに出す
@@ -193,7 +193,7 @@ id,english,japanese
 192,put on,をかけ
 193,What for?,何のために？
 194,so as to do,するために
-195,try ing,試しに してみる
+195,try ing,試しに〜してみる
 196,be full of,に満ちている
 197,calm down,静まる
 198,indulge in,にふける
@@ -210,7 +210,7 @@ id,english,japanese
 209,had better do,しない方がいい
 210,be expected to do,することになっている
 211,enable O to do,Ｏができるようにする
-212,yearn for,を熱望 する
+212,yearn for,を熱望する
 213,at the expense of,を犠牲にして
 214,How come ?,どうしてなのか？
 215,all the way,ずっと
@@ -365,11 +365,11 @@ id,english,japanese
 365,fall apart,ばらばらに壊れる
 366,deal in,を扱う
 367,break in,侵入する
-368,in the presence of,の 前で
+368,in the presence of,の前で
 369,succeed in,に成功する
 370,be free of,を含まない
 371,make for,を生み出す
-372,no longer,もはや ない
+372,no longer,もはや〜ない
 373,fill out,に〜記入する
 374,make a reservation,予約する
 375,have a good time,楽しい時を過ごす
@@ -387,10 +387,10 @@ id,english,japanese
 387,come true,実現する
 388,all the time,いつも
 389,prefer A to B,BよりAを好む
-390,if at all,いやしくも したなら
+390,if at all,いやしくも〜したなら
 391,none the 比較級 because,〜にもかかわらず
 392,in general,一般に
-393,be characteristic of,の特徴 である
+393,be characteristic of,の特徴である
 394,be certain of,を確信している
 395,out of place,場違いな
 396,in comparison with,と比較すると
@@ -420,7 +420,7 @@ id,english,japanese
 420,either A or B,AかBのどちらか
 421,go into effect,発効する
 422,come of age,成人に達する
-423,be free to do,自由に する
+423,be free to do,自由に〜する
 424,for the time being,差し当たり
 425,agree with,に賛成する
 426,bar A from B,AにBを禁止する
@@ -443,7 +443,7 @@ id,english,japanese
 443,dwell on,のことをくよくよ考える
 444,speak out,思い切って意見を述べる
 445,all at once,突然
-446,have in mind,のことを思って いる
+446,have in mind,のことを思っている
 447,be satisfied with,に満足している
 448,at any rate,とにかく
 449,it occurs that,が思い浮かぶ
@@ -463,7 +463,7 @@ id,english,japanese
 463,sit up,寝ないでいる
 464,in time,間に合って
 465,pull up,を止める
-466,the first time,初めて する時
+466,the first time,初めて〜する時
 467,should have p.p.,〜すべきだったのに
 468,call at,にちょっと立ち寄る
 469,rain cats and dogs,土砂降りに降る
@@ -486,7 +486,7 @@ id,english,japanese
 486,come home to,痛切に感じられる
 487,＋that,という
 488,it is no use ing,しても無駄だ
-489,grow up to do,成長して になる
+489,grow up to do,成長して〜になる
 490,ought to have p.p.,〜すべきだったのに
 491,without fail,必ず
 492,with ease,容易に
@@ -514,7 +514,7 @@ id,english,japanese
 514,care for,の世話をする
 515,break into,急に〜し始める
 516,take pity on,をかわいそうに思って手を貸す
-517,be anxious about,を心配 している
+517,be anxious about,を心配している
 518,do without,なしですます
 519,A is not any more than B is,Bが〜でないのと同様にAは〜ない
 520,nothing is as as A,Aほど〜なものはない
@@ -534,7 +534,7 @@ id,english,japanese
 534,out of sight,見えないところに
 535,cause O to do,Ｏに〜させる
 536,come to light,明らかになる
-537,as many as,ほど多数 の
+537,as many as,ほど多数の
 538,be worried about,を心配する
 539,take notice of,に注意を払う
 540,a lot of,多数の
@@ -577,7 +577,7 @@ id,english,japanese
 577,for nothing,無駄に
 578,feel like ing,したい気がする
 579,when it comes to,のことになると
-580,no matter what,たとえ何が しようと
+580,no matter what,たとえ何が〜しようと
 581,be at home with,に精通している
 582,hit on,を思いつく
 583,in a row,一列に
@@ -636,7 +636,7 @@ id,english,japanese
 636,on end,続けて
 637,be addicted to,に依存している
 638,cut back,を減らす
-639,of one's own ing,自身で した
+639,of one's own ing,自身で〜した
 640,if S should,万一〜なら
 641,be native to,の原産である
 642,be known to,に知られている
@@ -684,7 +684,7 @@ id,english,japanese
 684,take after,を追跡する
 685,be reluctant to do,したがらない
 686,exchange A for B,AをBと交換する
-687,look in the eye,の目 をまっすぐ見る
+687,look in the eye,の目をまっすぐ見る
 688,the time when,する時
 689,A is no less than B is,Bがであるのと同様にAはである
 690,lay off,を 解雇する
@@ -692,7 +692,7 @@ id,english,japanese
 692,kind of,いくぶん
 693,take a break,休憩する
 694,between you and me,内緒にして
-695,regret to do,残念ながら する
+695,regret to do,残念ながら〜する
 696,need not have p.p.,する必要がなかったのに
 697,use up,を使い尽くす
 698,seeing,であるので
@@ -722,7 +722,7 @@ id,english,japanese
 722,decide on,を選ぶ
 723,stay away from,に近づかない
 724,in public,人前で
-725,let O do,Ｏに させる
+725,let O do,Ｏに〜させる
 726,as + 数詞,〜も
 727,at length,詳細に
 728,stand for,を表す
@@ -739,7 +739,7 @@ id,english,japanese
 739,cannot do too,〜してもしすぎることはない
 740,to begin with,まず
 741,need ing,される必要がある
-742,no sooner than,するとすぐ する
+742,no sooner than,するとすぐ〜する
 743,keep one's word,約束を守る
 744,forgive A for B B,に関してAを許す
 745,present oneself,出頭する
@@ -782,8 +782,8 @@ id,english,japanese
 782,be famous for,で有名である
 783,think highly of,を高く評価する
 784,on schedule,予定通りに
-785,happen to do,たまたま する
-786,it is not until that,して初めて する
+785,happen to do,たまたま〜する
+786,it is not until that,して初めて〜する
 787,do nothing but do,単に〜するだけである
 788,in exchange of,と引き換えに
 789,feel for,に同情する
@@ -808,10 +808,10 @@ id,english,japanese
 808,but for,を除いて
 809,not either,もない
 810,where to do,どこですべきか
-811,動詞＋過去分詞,されて する
+811,動詞＋過去分詞,されて〜する
 812,upon + 名詞,すると
 813,will be ing,しているだろう
-814,hardly when,するとすぐ する
+814,hardly when,するとすぐ〜する
 815,as long as,する限り
 816,for want of,の不足のため
 817,be apt to do,しがちだ
@@ -826,7 +826,7 @@ id,english,japanese
 826,only too,とても
 827,in trouble,困った
 828,aim at,を目指す
-829,be busy ing,するのに 忙しい
+829,be busy ing,するのに忙しい
 830,If only,でありさえすればよいのに
 831,out of control,制御できなくて
 832,in the air,広まって
@@ -841,7 +841,7 @@ id,english,japanese
 841,try to do,しようとする
 842,in accordance with,に従って
 843,of,という
-844,If it were not for,もし がないなら
+844,If it were not for,もし〜がないなら
 845,forget to do,することを忘れる
 846,for the purpose of,の目的で
 847,at intervals,間隔をおいて
@@ -911,12 +911,12 @@ id,english,japanese
 911,not to speak of,は言うまでもなく
 912,what with A and B,AやらBやらで
 913,all too,あまりにも
-914,ascribe A to B,Aの原因 はBだと考える
+914,ascribe A to B,Aの原因はBだと考える
 915,identify A with B,AとBを同一視する
 916,hold true,当てはまる
 917,to the point of,まで
 918,correspond with,と一致する
-919,take charge of,を管理 する
+919,take charge of,を管理する
 920,let alone,は言うまでもなく
 921,by and large,概して
 922,at work,仕事中で
@@ -943,9 +943,9 @@ id,english,japanese
 943,take place,起こる
 944,in person,直接
 945,substitute A for B,Bの代わりにAを使う
-946,as good as,ほとんど も同然
-947,get on one's nerves,のかん に障る
-948,make oneself understood,自身 を理解してもらう
+946,as good as,ほとんど〜も同然
+947,get on one's nerves,のかんに障る
+948,make oneself understood,自身を理解してもらう
 949,have trouble ing,するのに苦労する
 950,take advantage of,を利用する
 951,turn in,を提出する
@@ -962,14 +962,14 @@ id,english,japanese
 962,bring about,をもたらす
 963,be made of,でできている
 964,dispose of,を処理する
-965,give away,を やる
+965,give away,をやる
 966,for free,無料で
 967,in advance,前もって
 968,sympathize with,に同情する
 969,", which",そしてそれは
-970,used to do,いつも したものだ
+970,used to do,いつも〜したものだ
 971,as as ever,相変わらず
-972,not ing,しない ので
+972,not ing,しないので
 973,hold A by the B,AのBをつかむ
 974,may have p.p.,〜したかもしれない
 975,count for,の価値がある
@@ -980,7 +980,7 @@ id,english,japanese
 980,specialize in,を専門に扱う
 981,make a choice,選択する
 982,suitable for,に適した
-983,go on to do,次に する
+983,go on to do,次に〜する
 984,on the spot,その場で
 985,with care,注意して
 986,will have p.p.,してしまっているだろう
@@ -999,36 +999,36 @@ id,english,japanese
 999,fall behind,後れをとる
 1000,a handful of,ひと握りの
 1001,cope with,に対処する
-1002,by no means,決して ない
+1002,by no means,決して〜ない
 1003,as a matter of fact,実際のところ
 1004,on the rise,上昇中で
 1005,supply A with B,AにBを供給する
 1006,take into account,を考慮に入れる
-1007,be lacking in,が 欠けている
+1007,be lacking in,が欠けている
 1008,rob A of B,AからBを強奪する
 1009,be unwilling to do,することに気が進まない
 1010,share A with B,AをBと共有する
 1011,be consistent with,と一致する
 1012,turn a deaf ear to,に耳を貸さない
 1013,to make matters worse,さらに悪いことには
-1014,manage to do,何とか する
+1014,manage to do,何とか〜する
 1015,as of,の時点で
 1016,make up,を構成する
 1017,on the increase,増加して
-1018,be bound to do,必ず する
+1018,be bound to do,必ず〜する
 1019,on occasion,時々
 1020,for fear of,を恐れて
 1021,in danger of,の危険にさらされて
 1022,have an impact on,に影響を及ぼす
 1023,get lost,消える
 1024,be proud of,を誇りにする
-1025,That is why,そういう わけで
+1025,That is why,そういうわけで
 1026,not to mention,は言うまでもなく
 1027,enough to do,するのに十分
 1028,at the moment,現在
 1029,as yet,今のところ
 1030,run over,を考えてみる
-1031,be convinced that,であると 確信している
+1031,be convinced that,であると確信している
 1032,be equal to,に等しい
 1033,be forced to do,することを強いられる
 1034,add to,を増やす
@@ -1056,7 +1056,7 @@ id,english,japanese
 1056,fall in love with,に恋をする
 1057,cheer up,を元気づける
 1058,go through,を経験する
-1059,interact with,と交流 する
+1059,interact with,と交流する
 1060,in brief,要するに
 1061,furnish A with B,AにBを与える
 1062,provide for,に与える
@@ -1067,7 +1067,7 @@ id,english,japanese
 1067,ill at ease,居心地が悪い
 1068,in any event,いずれにせよ
 1069,in ing,する時に
-1070,so that,大変 なので
+1070,so that,大変なので
 1071,count on,を当てにする
 1072,dawn on,にとって次第にわかるようになる
 1073,beat about the bush,遠回しに言う
@@ -1077,9 +1077,9 @@ id,english,japanese
 1077,at once,すぐに
 1078,compensate for,を埋め合わせる
 1079,appeal to A for B..,BのためにAに訴える
-1080,much less,まして ない
+1080,much less,まして〜ない
 1081,out of order,故障して
 1082,stand by,の味方をする
 1083,be suited to,に適した
-
 1084,on,〜に
+
