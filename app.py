@@ -46,14 +46,9 @@ def draw_text_fitted(c, text, x, y, max_width, font_name, max_size, min_size=6):
     """枠に合わせて文字サイズを自動縮小して描画（日本語混じり自動対応版）"""
     text = str(text)
     
-    # --- 【修正箇所】文字化け対策 ---
-    # 指定されたフォントが英字用(Times-Roman)の場合、
-    # テキスト内に全角文字（ASCIIコード127以上）が含まれていないかチェックします。
-    # 「～」や「…」などの記号が含まれている場合、自動的に日本語フォントに切り替えます。
     if font_name == EN_FONT_NAME:
         if any(ord(char) > 127 for char in text):
-            font_name = JP_FONT_NAME # 日本語フォントにスイッチ
-    # ----------------------------
+            font_name = JP_FONT_NAME 
 
     current_size = max_size
     try:
@@ -186,7 +181,6 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
                 c.setLineWidth(0.3)
                 c.line(x_base + w_id, y_base, x_base + w_id, y_base - row_height)
                 
-                # --- ここが修正により文字化けしなくなります ---
                 draw_text_fitted(c, str(item['english']), x_base + w_id + 2*mm, text_y - 2, w_word - 4*mm, EN_FONT_NAME, 11)
                 
                 c.line(x_base + w_id + w_word, y_base, x_base + w_id + w_word, y_base - row_height)
@@ -226,7 +220,6 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
                 
                 max_word_width = col_width - 25*mm - id_width 
                 
-                # --- ここも同様に修正が反映されます ---
                 draw_text_fitted(c, str(item['english']), x_base + 4*mm + id_width, line_1_y, max_word_width, EN_FONT_NAME, 13)
                 
                 c.setFont(EN_FONT_NAME, 12)
@@ -293,14 +286,23 @@ else:
         with col2:
             end_id_default = min(min_id+49, max_id)
             end_id = st.number_input("終了ID", min_value=min_id, max_value=max_id, value=end_id_default)
-        st.sidebar.caption(f"収録範囲: No.{min_id} ～ No.{max_id}")
-        st.sidebar.caption(f"**通し番号で入力してください**")
+        
+        # --- 変更箇所(ここから)：出題数の選択を追加 ---
+        # 選択された範囲内の実際のデータ数を計算
+        temp_target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
+        max_questions = len(temp_target_df)
+        if max_questions == 0: 
+            max_questions = 1 # エラー回避用
+            
+        st.sidebar.caption(f"選択範囲内の単語数: {len(temp_target_df)}語")
+        num_questions = st.sidebar.number_input("出題数", min_value=1, max_value=max_questions, value=max_questions)
+        # --- 変更箇所(ここまで) ---
 
         st.sidebar.markdown("---")
         st.sidebar.header("2. テスト形式")
         test_type = st.sidebar.selectbox("出題形式", ["4択式", "記述式"])
         
-        default_title = f"{os.path.splitext(selected_filename)[0]} テスト No.{start_id}-No.{end_id}"
+        default_title = f"{os.path.splitext(selected_filename)[0]} テスト"
         title_input = st.sidebar.text_input("タイトル", value=default_title)
         
         order_mode = st.sidebar.radio("出題順序", ["順番通り", "ランダム"], horizontal=True)
@@ -312,10 +314,16 @@ else:
             target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
             
             if len(target_df) > 0 and start_id <= end_id:
+                # --- 変更箇所(ここから)：出題数による絞り込み ---
+                if num_questions < len(target_df):
+                    # 範囲内から指定数だけランダムに抽出
+                    target_df = target_df.sample(n=num_questions)
+                # --- 変更箇所(ここまで) ---
+
                 if order_mode == "ランダム":
-                    target_df = target_df.sample(frac=1, random_state=None)
+                    target_df = target_df.sample(frac=1) # 最終的な並び順をランダムに
                 else:
-                    target_df = target_df.sort_values('id')
+                    target_df = target_df.sort_values('id') # ID順に戻す
 
                 include_answers = (mode == "模範解答")
                 final_title = title_input + ("【解答】" if include_answers else "")
@@ -329,7 +337,6 @@ else:
                 )
                 
                 st.success(f"✅ 作成完了！プレビューは印刷ボタンを押して確認してね！")
-                #st.caption(f"*英熟語は通し番号で出題してください。")
                 pdf_b64 = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
                 
                 js_code = f"""
