@@ -14,8 +14,74 @@ import streamlit.components.v1 as components
 from streamlit_pdf_viewer import pdf_viewer
 
 # --- 設定 ---
-st.set_page_config(page_title="単語テストアプリ", layout="wide")
+st.set_page_config(page_title="単語テストアプリ", page_icon="🖨️", layout="wide")
 DATA_DIR = "単語data"
+
+# --- デザイン調整用CSS (UI強化) ---
+def apply_custom_css():
+    st.markdown("""
+        <style>
+        /* 全体のフォントと背景 */
+        .stApp {
+            background-color: #f8f9fa;
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+        }
+        
+        /* サイドバーのデザイン調整 */
+        section[data-testid="stSidebar"] {
+            background-color: #ffffff;
+            border-right: 1px solid #e0e0e0;
+        }
+        
+        /* ヘッダーのスタイル */
+        .main-header {
+            background: linear-gradient(90deg, #4B8BBE 0%, #306998 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .main-header h1 {
+            color: white !important;
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        /* ボタンのスタイル強化 */
+        div.stButton > button:first-child {
+            background-color: #2e86c1;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        div.stButton > button:first-child:hover {
+            background-color: #1a5276;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* 入力フィールドの調整 */
+        .stNumberInput, .stSelectbox, .stTextInput {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* 結果表示エリアのカード化 */
+        .result-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-top: 1rem;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
 # --- フォント設定 ---
 try:
@@ -260,74 +326,100 @@ def create_pdf(target_data, all_data_df, title, test_type, include_answers=False
     buffer.seek(0)
     return buffer
 
-# --- アプリ画面 ---
-st.title("🖨️ 単語テストアプリ")
+# --- アプリ画面 (デザイン強化) ---
+
+apply_custom_css() # CSS適用
+
+# ヘッダーデザインの適用
+st.markdown("""
+    <div class="main-header">
+        <h1>🖨️ 単語テストアプリ</h1>
+        <p style="margin-top: 5px; opacity: 0.9;">オリジナル単語テストPDFを一瞬で作成</p>
+    </div>
+""", unsafe_allow_html=True)
 
 csv_files_paths = get_csv_files()
 
 if not csv_files_paths:
-    st.warning(f"「{DATA_DIR}」フォルダ内にCSVファイルが見つかりません。")
+    st.error(f"⚠️ データエラー: 「{DATA_DIR}」フォルダ内にCSVファイルが見つかりません。")
 else:
-    st.sidebar.header("1. 単語帳・範囲選択")
-    files_map = {os.path.basename(p): p for p in csv_files_paths}
-    selected_filename = st.sidebar.selectbox("ファイルを選択", list(files_map.keys()))
-    selected_filepath = files_map[selected_filename]
-    
-    df = load_data(selected_filepath)
+    # --- サイドバー設定 ---
+    with st.sidebar:
+        st.header("1. 単語帳・範囲選択")
+        
+        files_map = {os.path.basename(p): p for p in csv_files_paths}
+        selected_filename = st.selectbox("ファイルを選択", list(files_map.keys()))
+        selected_filepath = files_map[selected_filename]
+        
+        df = load_data(selected_filepath)
 
-    if df is not None:
-        min_id = int(df['id'].min())
-        max_id = int(df['id'].max())
-        st.sidebar.caption(f"収録範囲: No.{min_id} ～ No.{max_id}")
-        st.sidebar.subheader("出題範囲")
-        st.sidebar.caption(f"**通し番号で入力してください**")
-        col1, col2 = st.sidebar.columns(2)
-        with col1:
-            start_id = st.number_input("開始ID", min_value=min_id, max_value=max_id, value=min_id)
-        with col2:
-            end_id_default = min(min_id+49, max_id)
-            end_id = st.number_input("終了ID", min_value=min_id, max_value=max_id, value=end_id_default)
-        # --- 変更箇所(ここから)：出題数の選択を追加 ---
-        # 選択された範囲内の実際のデータ数を計算
-        temp_target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
-        max_questions = len(temp_target_df)
-        if max_questions == 0: 
-            max_questions = 1 # エラー回避用
+        if df is not None:
+            min_id = int(df['id'].min())
+            max_id = int(df['id'].max())
+            st.caption(f"収録範囲: No.{min_id} ～ No.{max_id}")
             
-        st.sidebar.caption(f"選択範囲内の単語数: {len(temp_target_df)}語")
-        num_questions = st.sidebar.number_input("出題数", min_value=1, max_value=max_questions, value=max_questions)
-        # --- 変更箇所(ここまで) ---
-
-        st.sidebar.markdown("---")
-        st.sidebar.header("2. テスト形式")
-        test_type = st.sidebar.selectbox("出題形式", ["4択式", "記述式"])
-        
-        default_title = f"{os.path.splitext(selected_filename)[0]} テスト"
-        title_input = st.sidebar.text_input("タイトル", value=default_title)
-        
-        order_mode = st.sidebar.radio("出題順序", ["順番通り", "ランダム"], horizontal=True)
-        
-        st.sidebar.markdown("---")
-        mode = st.sidebar.radio("出力モード", ["問題用紙", "模範解答"], horizontal=True)
-        
-        if st.sidebar.button("作成", type="primary"):
-            target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
+            st.subheader("出題範囲")
+            st.info(f"**通し番号で入力してください**")
             
-            if len(target_df) > 0 and start_id <= end_id:
-                # --- 変更箇所(ここから)：出題数による絞り込み ---
-                if num_questions < len(target_df):
-                    # 範囲内から指定数だけランダムに抽出
-                    target_df = target_df.sample(n=num_questions)
-                # --- 変更箇所(ここまで) ---
-
-                if order_mode == "ランダム":
-                    target_df = target_df.sample(frac=1) # 最終的な並び順をランダムに
-                else:
-                    target_df = target_df.sort_values('id') # ID順に戻す
-
-                include_answers = (mode == "模範解答")
-                final_title = title_input + ("【解答】" if include_answers else "")
+            col1, col2 = st.columns(2)
+            with col1:
+                start_id = st.number_input("開始ID", min_value=min_id, max_value=max_id, value=min_id)
+            with col2:
+                end_id_default = min(min_id+49, max_id)
+                end_id = st.number_input("終了ID", min_value=min_id, max_value=max_id, value=end_id_default)
+            
+            # 出題数の選択
+            temp_target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
+            max_questions = len(temp_target_df)
+            if max_questions == 0: 
+                max_questions = 1 
                 
+            st.caption(f"選択範囲内の単語数: {len(temp_target_df)}語")
+            num_questions = st.number_input("出題数", min_value=1, max_value=max_questions, value=max_questions)
+
+            st.markdown("---")
+            st.header("2. テスト形式")
+            test_type = st.selectbox("出題形式", ["4択式", "記述式"])
+            
+            default_title = f"{os.path.splitext(selected_filename)[0]} テスト"
+            title_input = st.text_input("タイトル", value=default_title)
+            
+            order_mode = st.radio("出題順序", ["順番通り", "ランダム"], horizontal=True)
+            
+            st.markdown("---")
+            mode = st.radio("出力モード", ["問題用紙", "模範解答"], horizontal=True)
+            
+            st.write("") # スペーサー
+            create_btn = st.button("作成", type="primary")
+
+    # --- メインエリア（結果表示） ---
+    
+    # プレースホルダー（作成前）
+    if not create_btn and 'pdf_generated' not in st.session_state:
+        st.markdown("""
+        <div style="text-align:center; color:#888; padding: 50px;">
+            <h3>👈 サイドバーから設定を選んで「作成」を押してください</h3>
+        </div>
+        """, unsafe_allow_html=True)
+
+    if create_btn:
+        st.session_state['pdf_generated'] = True
+        
+        target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
+        
+        if len(target_df) > 0 and start_id <= end_id:
+            if num_questions < len(target_df):
+                target_df = target_df.sample(n=num_questions)
+
+            if order_mode == "ランダム":
+                target_df = target_df.sample(frac=1)
+            else:
+                target_df = target_df.sort_values('id')
+
+            include_answers = (mode == "模範解答")
+            final_title = title_input + ("【解答】" if include_answers else "")
+            
+            with st.spinner('PDFを作成中...'):
                 pdf_bytes = create_pdf(
                     target_df.to_dict('records'), 
                     df,
@@ -335,36 +427,42 @@ else:
                     test_type, 
                     include_answers=include_answers
                 )
-                
-                st.success(f"✅ 作成完了！プレビューは印刷ボタンを押して確認してね！")
-                pdf_b64 = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
-                
-                js_code = f"""
-                <script>
-                    function openPdf() {{
-                        var binary = atob("{pdf_b64}");
-                        var array = [];
-                        for (var i = 0; i < binary.length; i++) {{
-                            array.push(binary.charCodeAt(i));
-                        }}
-                        var blob = new Blob([new Uint8Array(array)], {{type: 'application/pdf'}});
-                        var url = URL.createObjectURL(blob);
-                        window.open(url, '_blank');
+            
+            # 結果表示コンテナ
+            st.markdown('<div class="result-card">', unsafe_allow_html=True)
+            st.success(f"✅ 作成完了！")
+            
+            pdf_b64 = base64.b64encode(pdf_bytes.getvalue()).decode('utf-8')
+            
+            # 印刷ボタンのスタイル調整
+            js_code = f"""
+            <script>
+                function openPdf() {{
+                    var binary = atob("{pdf_b64}");
+                    var array = [];
+                    for (var i = 0; i < binary.length; i++) {{
+                        array.push(binary.charCodeAt(i));
                     }}
-                </script>
-                <div style="text-align: center; margin: 20px 0;">
-                    <button onclick="openPdf()" style="
-                        background-color: #FF4B4B; color: white; border: none; padding: 12px 24px; 
-                        font-size: 18px; font-weight: bold; border-radius: 8px; cursor: pointer;
-                        box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: background-color 0.3s;
-                    ">
-                        🖨️ 印刷
-                    </button>
-                </div>
-                """
-                components.html(js_code, height=80)
-                st.markdown("### 📄 プレビュー")
-                pdf_viewer(input=pdf_bytes.getvalue(), width=800)
-                
-            else:
-                st.error("指定された範囲にデータがありません。")
+                    var blob = new Blob([new Uint8Array(array)], {{type: 'application/pdf'}});
+                    var url = URL.createObjectURL(blob);
+                    window.open(url, '_blank');
+                }}
+            </script>
+            <div style="text-align: center; margin: 20px 0;">
+                <button onclick="openPdf()" style="
+                    background-color: #e74c3c; color: white; border: none; padding: 12px 30px; 
+                    font-size: 16px; font-weight: bold; border-radius: 50px; cursor: pointer;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s;
+                ">
+                    🖨️ PDFを印刷する
+                </button>
+            </div>
+            """
+            components.html(js_code, height=80)
+            
+            st.markdown("### 📄 プレビュー")
+            pdf_viewer(input=pdf_bytes.getvalue(), width=800)
+            st.markdown('</div>', unsafe_allow_html=True)
+            
+        else:
+            st.error("指定された範囲にデータがありません。")
