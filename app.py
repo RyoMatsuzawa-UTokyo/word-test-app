@@ -278,7 +278,7 @@ else:
     if df is not None:
         min_id = int(df['id'].min())
         max_id = int(df['id'].max())
-        
+        st.sidebar.caption(f"収録範囲: No.{min_id} ～ No.{max_id}")
         st.sidebar.subheader("出題範囲")
         st.sidebar.caption(f"**通し番号で入力してください**")
         col1, col2 = st.sidebar.columns(2)
@@ -287,7 +287,6 @@ else:
         with col2:
             end_id_default = min(min_id+49, max_id)
             end_id = st.number_input("終了ID", min_value=min_id, max_value=max_id, value=end_id_default)
-        st.sidebar.caption(f"収録範囲: No.{min_id} ～ No.{max_id}")
         # --- 変更箇所(ここから)：出題数の選択を追加 ---
         # 選択された範囲内の実際のデータ数を計算
         temp_target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
