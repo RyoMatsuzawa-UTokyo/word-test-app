@@ -313,7 +313,7 @@ id,english,japanese
 312,wheel,車輪
 313,note,メモ
 314,present,プレゼント
-315,bargain,買い得品  交渉する
+315,bargain,買い得品
 316,stuff,もの
 317,string,ひも
 318,leisure,余暇
@@ -618,7 +618,7 @@ id,english,japanese
 617,engage,従事する
 618,bump,ぶつかる
 619,bend,身をかがめる
-620,hug,を 抱きしめる
+620,hug,を抱きしめる
 621,stare,じっと見つめる
 622,gaze,見つめる
 623,glance,ちらりと見る
@@ -1428,7 +1428,7 @@ id,english,japanese
 1427,yield,～を産出する
 1428,duplicate,～を複製する
 1429,assemble,～を組み立てる
-1430,mold,～を 作る
+1430,mold,～を作る
 1431,coin,～を作り出す
 1432,therapy,治療
 1433,injection,注射
@@ -1461,7 +1461,7 @@ id,english,japanese
 1460,spinal,脊椎の
 1461,suck,～を吸う
 1462,shrug,をすくめる
-1463,compensate,に 補償する
+1463,compensate,に補償する
 1464,abuse,虐待
 1465,bias,偏見
 1466,prestige,名声
@@ -2299,4 +2299,5 @@ id,english,japanese
 2298,homogeneous,均質の
 2299,feasible,実現可能な
 2300,viable,実行可能な
+
 
