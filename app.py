@@ -287,7 +287,7 @@ else:
         with col2:
             end_id_default = min(min_id+49, max_id)
             end_id = st.number_input("終了ID", min_value=min_id, max_value=max_id, value=end_id_default)
-        # --- 変更箇所(ここから)：出題数の選択を追加 ---
+        
         # 選択された範囲内の実際のデータ数を計算
         temp_target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
         max_questions = len(temp_target_df)
@@ -296,8 +296,7 @@ else:
             
         st.sidebar.caption(f"選択範囲内の単語数: {len(temp_target_df)}語")
         num_questions = st.sidebar.number_input("出題数", min_value=1, max_value=max_questions, value=max_questions)
-        # --- 変更箇所(ここまで) ---
-
+        
         st.sidebar.markdown("---")
         st.sidebar.header("2. テスト形式")
         test_type = st.sidebar.selectbox("出題形式", ["4択式", "記述式"])
@@ -311,20 +310,39 @@ else:
         mode = st.sidebar.radio("出力モード", ["問題用紙", "模範解答"], horizontal=True)
         
         if st.sidebar.button("作成", type="primary"):
-            target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
-            
-            if len(target_df) > 0 and start_id <= end_id:
-                # --- 変更箇所(ここから)：出題数による絞り込み ---
-                if num_questions < len(target_df):
-                    # 範囲内から指定数だけランダムに抽出
-                    target_df = target_df.sample(n=num_questions)
-                # --- 変更箇所(ここまで) ---
+            # --- 修正箇所：設定条件が変わった場合のみ再生成するロジック ---
+            current_params = {
+                "filename": selected_filename,
+                "start_id": start_id,
+                "end_id": end_id,
+                "num_questions": num_questions,
+                "order_mode": order_mode
+            }
 
-                if order_mode == "ランダム":
-                    target_df = target_df.sample(frac=1) # 最終的な並び順をランダムに
+            # キャッシュが存在しない、または設定条件(出力モード以外)が変わった場合にデータを再生成
+            if "last_generated_df" not in st.session_state or st.session_state.get("last_params") != current_params:
+                target_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
+                
+                if len(target_df) > 0 and start_id <= end_id:
+                    if num_questions < len(target_df):
+                        # 範囲内から指定数だけランダムに抽出
+                        target_df = target_df.sample(n=num_questions)
+                    
+                    if order_mode == "ランダム":
+                        target_df = target_df.sample(frac=1) # 最終的な並び順をランダムに
+                    else:
+                        target_df = target_df.sort_values('id') # ID順に戻す
+                    
+                    # 生成したデータをセッションステートに保存
+                    st.session_state["last_generated_df"] = target_df
+                    st.session_state["last_params"] = current_params
                 else:
-                    target_df = target_df.sort_values('id') # ID順に戻す
+                    st.session_state["last_generated_df"] = None
+            
+            # --- 保存されたデータを使用 ---
+            target_df = st.session_state.get("last_generated_df")
 
+            if target_df is not None and not target_df.empty:
                 include_answers = (mode == "模範解答")
                 final_title = title_input + ("【解答】" if include_answers else "")
                 
