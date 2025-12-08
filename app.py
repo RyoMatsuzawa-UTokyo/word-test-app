@@ -307,8 +307,7 @@ else:
         order_mode = st.sidebar.radio("出題順序", ["順番通り", "ランダム"], horizontal=True)
         
         st.sidebar.markdown("---")
-        mode = st.sidebar.radio("出力モード", ["問題", "解答"], horizontal=True)
-        st.sidebar.caption(f"*ランダム出題の場合、問題を作成した後は変更を加えずそのまま解答を作成してください。問題と解答の順番が合わなくなります。")
+        mode = st.sidebar.radio("出力モード", ["問題用紙", "模範解答"], horizontal=True)
         
         if st.sidebar.button("作成", type="primary"):
             # --- 修正箇所：設定条件が変わった場合のみ再生成するロジック ---
